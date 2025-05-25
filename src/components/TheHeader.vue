@@ -1,5 +1,41 @@
+
+<script setup>
+import { ref } from 'vue'
+import { onMounted, onUnmounted } from 'vue';
+import { curAnchor, routes, defaultAnchor } from '@/stores/route.js';
+
+
+const mobileMenuOpen = ref(false)
+const toggleMobileMenu = () => {
+  mobileMenuOpen.value = !mobileMenuOpen.value
+}
+
+// À remplacer dynamiquement selon l'utilisateur connecté
+const userAvatar = '../assets/avatar.png'
+
+  function getHashState() {
+    let hash = window.location.hash.substring(1);
+    if (!hash || !routes.some(route => route.anchor === hash)) {
+      hash = defaultAnchor;
+      window.history.pushState(null, null, '#' + hash);
+    }
+    curAnchor.value = hash;
+  }
+
+  onMounted(() => {
+    window.addEventListener('popstate', getHashState);
+    getHashState();
+  });
+
+  onUnmounted(() => {
+    window.removeEventListener('popstate', getHashState);
+  });
+</script>
+
+
 <template>
   <header class="bg-[#ffc72c] w-full shadow z-50 top-0">
+    
     <nav class="flex items-center justify-between px-4 py-3 md:px-8 h-16">
       <!-- Left side: logo + branding -->
       <div class="flex items-center space-x-4">
@@ -11,11 +47,11 @@
 
       <!-- Center nav links (hidden on mobile) -->
       <div class="hidden md:flex items-center space-x-6 uppercase font-sans text-sm">
-        <a href="#specialist-training" class="hover:text-white">Spécialiste Breitling</a>
+        <a href="#specialist-training"  :key="routes[1].anchor" class="hover:text-white active: curAnchor === route.anchor">{{ routes[1].label }}</a>
         <a href="#training-resources" class="hover:text-white">Ressources de formation</a>
         <a href="#collection-tool" class="hover:text-white">Outil Collection</a>
         <a href="#140-years" class="hover:text-white">Scrolllytelling</a>
-        <a href="#cup" class="hover:text-white">Breitling Cup</a>
+        <a href="#cup" :key="routes[0].anchor" class="hover:text-white active: curAnchor === route.anchor">{{ routes[0].label }}</a>
       </div>
 
       <!-- Right side: profile -->
@@ -46,15 +82,3 @@
     </div>
   </header>
 </template>
-
-<script setup>
-import { ref } from 'vue'
-
-const mobileMenuOpen = ref(false)
-const toggleMobileMenu = () => {
-  mobileMenuOpen.value = !mobileMenuOpen.value
-}
-
-// À remplacer dynamiquement selon l'utilisateur connecté
-const userAvatar = '../assets/avatar.png'
-</script>

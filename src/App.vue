@@ -1,12 +1,13 @@
 <script setup>
+import { RouterView } from 'vue-router';
 import TheHeader from './components/TheHeader.vue';
-import { currentPage } from '@/stores/route.js';
+
 </script>
 
 <template>
-  <TheHeader></TheHeader>
+  <TheHeader/>
   <main>
-    <component :is="currentPage" />
+    <RouterView/>  
   </main>
 </template>
 

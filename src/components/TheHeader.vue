@@ -1,8 +1,8 @@
 
 <script setup>
 import { ref } from 'vue'
-import { onMounted, onUnmounted } from 'vue';
-import { curAnchor, routes, defaultAnchor } from '@/stores/route.js';
+/* import { onMounted, onUnmounted } from 'vue'; */
+import { RouterLink } from 'vue-router';
 
 
 const mobileMenuOpen = ref(false)
@@ -13,7 +13,7 @@ const toggleMobileMenu = () => {
 // À remplacer dynamiquement selon l'utilisateur connecté
 const userAvatar = '../assets/avatar.png'
 
-  function getHashState() {
+ /*  function getHashState() {
     let hash = window.location.hash.substring(1);
     if (!hash || !routes.some(route => route.anchor === hash)) {
       hash = defaultAnchor;
@@ -29,7 +29,7 @@ const userAvatar = '../assets/avatar.png'
 
   onUnmounted(() => {
     window.removeEventListener('popstate', getHashState);
-  });
+  }); */
 </script>
 
 
@@ -39,24 +39,25 @@ const userAvatar = '../assets/avatar.png'
     <nav class="flex items-center justify-between px-4 py-3 md:px-8 h-16">
       <!-- Left side: logo + branding -->
       <div class="flex items-center space-x-4">
-        <a href="#main" class="flex items-center">
+        <RouterLink to="/" class="flex items-center">
           <img src="../assets/animated-breitling-challenge.gif" alt="Breitling Challenge" class="h-10 hidden md:inline" />
           <img src="../assets/140.svg" alt="140 Years" class="h-10 ml-4 border-l border-black pl-4 hidden md:inline" />
-        </a>
+        </RouterLink>
       </div>
 
       <!-- Center nav links (hidden on mobile) -->
       <div class="hidden md:flex items-center space-x-6 uppercase font-sans text-sm">
-        <a href="#specialist-training"  :key="routes[1].anchor" class="hover:text-white active: curAnchor === route.anchor">{{ routes[1].label }}</a>
-        <a href="#training-resources" class="hover:text-white">Ressources de formation</a>
-        <a href="#collection-tool" class="hover:text-white">Outil Collection</a>
-        <a href="#140-years" class="hover:text-white">Scrolllytelling</a>
-        <a href="#cup" :key="routes[0].anchor" class="hover:text-white active: curAnchor === route.anchor">{{ routes[0].label }}</a>
+        <RouterLink to="/specialist-training"  class="hover:text-white "> Spécialiste Breitling</RouterLink>
+        <RouterLink to="/training-resources" class="hover:text-white">Ressources de formation</RouterLink>
+        <RouterLink to="/collection-tool" class="hover:text-white">Outil Collection</RouterLink>
+        <RouterLink to="/140-years" class="hover:text-white">Scrolllytelling</RouterLink>
+        <RouterLink to="/cup" class="hover:text-white">Breitling Cup</RouterLink>
+        <RouterLink to="/league" class="hover:text-white"> Breitling League</RouterLink>
       </div>
 
       <!-- Right side: profile -->
       <div class="flex items-center space-x-2">
-        <a href="#user-profile:my-pos" class="hidden md:inline text-sm uppercase">Ma boutique</a>
+        <RouterLink to="/user-profile:my-pos" class="hidden md:inline text-sm uppercase">Ma boutique</RouterLink>
         <img
           class="w-10 h-10 rounded-full"
           src="../assets/avatar.png"
@@ -74,11 +75,12 @@ const userAvatar = '../assets/avatar.png'
 
     <!-- Mobile nav -->
     <div v-if="mobileMenuOpen" class="md:hidden px-4 pb-4 flex flex-col space-y-2 text-sm uppercase font-sans">
-      <a href="#specialist-training" class="hover:text-white">Spécialiste Breitling</a>
-      <a href="#training-resources" class="hover:text-white">Ressources de formation</a>
-      <a href="#collection-tool" class="hover:text-white">Outil Collection</a>
-      <a href="#140-years" class="hover:text-white">Scrolllytelling</a>
-      <a href="#cup" class="hover:text-white">Breitling Cup</a>
+      <RouterLink to="/specialist-training" class="hover:text-white">Spécialiste Breitling</RouterLink>
+      <RouterLink to="/training-resources" class="hover:text-white">Ressources de formation</RouterLink>
+      <RouterLink to="/collection-tool" class="hover:text-white">Outil Collection</RouterLink>
+      <RouterLink to="/140-years" class="hover:text-white">Scrolllytelling</RouterLink>
+      <RouterLink to="/cup" class="hover:text-white">Breitling Cup</RouterLink>
+      <RouterLink to="/league" class="hover:text-white">Breitling League</RouterLink>
     </div>
-  </header>
+  </header> 
 </template>

@@ -8,7 +8,7 @@ const challenges = ref([])
 // Fetch challenges and update the ref
 const fetchChallenges = async () => {
   try {
-    const response = await fetch('http://127.0.0.1:8001/api/challenges')
+    const response = await fetch('http://127.0.0.1:8000/api/challenges')
     const data = await response.json()
     challenges.value = data // Update the ref value
     console.log('Challenges fetched successfully:', challenges.value)

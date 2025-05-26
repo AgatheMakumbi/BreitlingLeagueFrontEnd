@@ -3,7 +3,7 @@ import { ref } from 'vue'
 const greeting = ref('Cup de Breitling')
 const challenges = ref([])
 
-//fetch http://127.0.0.1:8001/api/challenges 
+//fetch http://127.0.0.1:8000/api/challenges 
 // to get the challenges and display them in the template
 // Fetch challenges and update the ref
 const fetchChallenges = async () => {

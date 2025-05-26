@@ -1,7 +1,6 @@
 
 <script setup>
 import { ref } from 'vue'
-/* import { onMounted, onUnmounted } from 'vue'; */
 import { RouterLink } from 'vue-router';
 
 
@@ -13,23 +12,6 @@ const toggleMobileMenu = () => {
 // À remplacer dynamiquement selon l'utilisateur connecté
 const userAvatar = '../assets/avatar.png'
 
- /*  function getHashState() {
-    let hash = window.location.hash.substring(1);
-    if (!hash || !routes.some(route => route.anchor === hash)) {
-      hash = defaultAnchor;
-      window.history.pushState(null, null, '#' + hash);
-    }
-    curAnchor.value = hash;
-  }
-
-  onMounted(() => {
-    window.addEventListener('popstate', getHashState);
-    getHashState();
-  });
-
-  onUnmounted(() => {
-    window.removeEventListener('popstate', getHashState);
-  }); */
 </script>
 
 
@@ -57,7 +39,7 @@ const userAvatar = '../assets/avatar.png'
 
       <!-- Right side: profile -->
       <div class="flex items-center space-x-2">
-        <RouterLink to="/user-profile:my-pos" class="hidden md:inline text-sm uppercase">Ma boutique</RouterLink>
+        <RouterLink to="/user-profile" class="hidden md:inline text-sm uppercase">Ma boutique</RouterLink>
         <img
           class="w-10 h-10 rounded-full"
           src="../assets/avatar.png"

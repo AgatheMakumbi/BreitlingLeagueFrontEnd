@@ -1,4 +1,4 @@
-
+import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from "./components/pages/HomePage.vue";
 import BreitlingSpecialist from "./components/pages/BreitlingSpecialist.vue";
 import TrainingResources from "./components/pages/TrainingResources.vue";
@@ -8,17 +8,21 @@ import BreitlingCup from "./components/pages/BreitlingCup.vue";
 import BreitlingLeague from "./components/pages/BreitlingLeague.vue";
 import UserProfile from "./components/pages/UserProfile.vue";
 
-export const routes = [
-    {path: "/", Component: HomePage},
-    {path: "/specialist-training", Component: BreitlingSpecialist},
-    {path: "/training-resources", Component: TrainingResources},
-    {path: "/collection-tool", Component: CollectionTool},
-    {path: "/140-years", Component: Scrolllytelling},
-    {path: "/cup", Component: BreitlingCup},
-    {path: "/league", Component: BreitlingLeague},
-    {path: "/user-profile:my-pos", Component: UserProfile},
-
-
-
-
+const routes = [
+    { path: '/', name: 'home', component: HomePage },
+    { path: '/specialist-training', name: 'specialist', component: BreitlingSpecialist },
+    { path: '/training-resources', name: 'training', component: TrainingResources },
+    { path: '/collection-tool', name: 'collection', component: CollectionTool },
+    { path: '/140-years', name: 'years', component: Scrolllytelling },
+    { path: '/cup', name: 'cup', component: BreitlingCup },
+    { path: '/league', name: 'league', component: BreitlingLeague },
+    { path: '/user-profile', name: 'profile', component: UserProfile }
 ];
+
+const router = createRouter({
+    history: createWebHistory(),
+    routes,
+}); 
+
+
+export default router

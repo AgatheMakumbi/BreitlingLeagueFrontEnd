@@ -1,15 +1,7 @@
 <script setup>
-import { ref } from 'vue'
-const greeting = ref('Spécialiste Breitling')
+import ScreenShots from '@/components/ScreenShots.vue'
 </script>
 
 <template>
-  <p class="greeting">{{ greeting }}</p>
+   <ScreenShots page-name="breitlingSpecialist" />
 </template>
-
-<style>
-.greeting {
-  color: rgb(255, 0, 153);
-  font-weight: bold;
-}
-</style>

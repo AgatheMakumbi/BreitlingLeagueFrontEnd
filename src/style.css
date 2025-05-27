@@ -3,4 +3,49 @@
 
 @theme {
   --font-primary: "italian_plate_no2regular", sans-serif;
+  --color-yellow-500: #ffc72c;
+}
+
+@layer base {
+  body {
+    @apply bg-white ;
+    font-family: var(--font-primary);
+  }
+
+  
+  a {
+    @apply text-black no-underline hover:no-underline;
+  }
+}
+@layer components {
+  .mobileImage {
+    @apply w-full h-auto object-cover;
+  }
+
+}
+@layer utilities {
+  .text-center {
+    @apply text-center;
+  }
+
+}
+
+@layer screens {
+  @media (min-width: 640px) {
+    .sm\:text-lg {
+      @apply text-lg;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .md\:text-xl {
+      @apply text-xl;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .lg\:text-2xl {
+      @apply text-2xl;
+    }
+  }
 }

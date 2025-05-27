@@ -28,7 +28,7 @@ const userAvatar = '../assets/avatar.png'
       </div>
 
       <!-- Center nav links (hidden on mobile) -->
-      <div class="hidden md:flex items-center space-x-6 uppercase font-sans text-sm">
+      <div class="hidden md:flex items-center space-x-6 uppercase text-sm">
         <RouterLink to="/specialist-training"  class="hover:text-white "> Spécialiste Breitling</RouterLink>
         <RouterLink to="/training-resources" class="hover:text-white">Ressources de formation</RouterLink>
         <RouterLink to="/collection-tool" class="hover:text-white">Outil Collection</RouterLink>
@@ -56,7 +56,7 @@ const userAvatar = '../assets/avatar.png'
     </nav>
 
     <!-- Mobile nav -->
-    <div v-if="mobileMenuOpen" class="md:hidden px-4 pb-4 flex flex-col space-y-2 text-sm uppercase font-sans">
+    <div v-if="mobileMenuOpen" class="md:hidden px-4 pb-4 flex flex-col space-y-2 text-sm uppercase">
       <RouterLink to="/specialist-training" class="hover:text-white">Spécialiste Breitling</RouterLink>
       <RouterLink to="/training-resources" class="hover:text-white">Ressources de formation</RouterLink>
       <RouterLink to="/collection-tool" class="hover:text-white">Outil Collection</RouterLink>

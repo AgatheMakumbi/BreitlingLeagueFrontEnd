@@ -1,15 +1,8 @@
 <script setup>
-import { ref } from 'vue'
-const greeting = ref('Storytelling!')
+import ScreenShots from '@/components/ScreenShots.vue'
 </script>
 
 <template>
-  <p class="greeting">{{ greeting }}</p>
+   <ScreenShots page-name="scrollytelling" />
 </template>
 
-<style>
-.greeting {
-  color: rgb(61, 135, 72);
-  font-weight: bold;
-}
-</style>

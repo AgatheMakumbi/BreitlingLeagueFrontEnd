@@ -1,15 +1,7 @@
 <script setup>
-import { ref } from 'vue'
-const greeting = ref('Collection Tool!')
+import ScreenShots from '@/components/ScreenShots.vue'
 </script>
 
 <template>
-  <p class="greeting">{{ greeting }}</p>
+   <ScreenShots page-name="collectionTool" />
 </template>
-
-<style>
-.greeting {
-  color: rgb(47, 226, 205);
-  font-weight: bold;
-}
-</style>

@@ -1,15 +1,8 @@
 <script setup>
-import { ref } from 'vue'
-const greeting = ref('Training Ressources!')
+import ScreenShots from '@/components/ScreenShots.vue'
 </script>
 
 <template>
-  <p class="greeting">{{ greeting }}</p>
+   <ScreenShots page-name="trainingResources" />
 </template>
 
-<style>
-.greeting {
-  color: red;
-  font-weight: bold;
-}
-</style>

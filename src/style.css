@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "./assets/font/stylesheet.css";
 
+
 @theme {
   --font-primary: "italian_plate_no2regular", sans-serif;
   --color-yellow-500: #ffc72c;
@@ -16,10 +17,33 @@
   a {
     @apply text-black no-underline hover:no-underline;
   }
+  section p {
+    @apply text-black text-center text-sm;
+  }
+  section{
+    @apply text-center items-center justify-items-center;
+  } 
+  
 }
 @layer components {
   .mobileImage {
     @apply w-full h-auto object-cover;
+  }
+  /* Progress Bar */
+  .progressBarWrapper {
+     @apply w-[70%] p-10 flex flex-col items-center justify-items-center;
+  } 
+  .circular-bar{
+    @apply w-24 h-24 rounded-[50%] flex items-center justify-center;
+    background: conic-gradient(#ffc72c 1.5deg,#ffe08d 0deg);
+    
+  }
+  .percent{
+    @apply z-10 text-xl bg-white rounded-full w-18 h-18 flex items-center justify-center;
+    
+  }
+  .progressLabel{
+    @apply text-black text-lg mt-4;
   }
 
 }
@@ -27,8 +51,18 @@
   .text-center {
     @apply text-center;
   }
+  .pageTitle {
+    @apply text-2xl leading-relaxed uppercase;
+  }
+  .progressLabel{
+    @apply text-black text-center  text-lg;
+    
+  }
+  
 
 }
+
+
 
 @layer screens {
   @media (min-width: 640px) {

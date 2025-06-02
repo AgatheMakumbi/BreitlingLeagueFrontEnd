@@ -91,18 +91,16 @@
   }
   /*1VS1 GAME MODE*/
   .turnWrapper{
-    @apply w-80 h-40 relative 
+    @apply  relative 
   }
   .turnLabel{
     @apply top-0 text-center justify-start text-black text-base font-bold font-['Italian_Plate_No2']
   }
-  .turnLabel::after{
-     content: ;
-  }
+  
 
   /*Turn component*/
   .oponentWrapper{
-    @apply box-border w-80  inline-flex justify-start items-center gap-9 p-2.5 ;
+    @apply box-border inline-flex justify-start items-center gap-9 p-2.5 ;
   }
   .oponentAvatarWrapper{
     @apply w-20 h-20  rounded-[100px] outline-2 

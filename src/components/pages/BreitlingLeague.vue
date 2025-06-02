@@ -69,7 +69,7 @@
       </p>
       <div class="turnWrapper">
         <!--Label top-->
-        <div class="w-80 p-2.5 inline-flex flex flex-row">
+        <div class="w-[80vw] p-2.5 inline-flex flex flex-row">
           <div
             class="justify-self-center items-self-center flex flex-col w-full"
           >

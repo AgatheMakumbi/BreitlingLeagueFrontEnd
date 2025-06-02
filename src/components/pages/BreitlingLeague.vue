@@ -1,19 +1,44 @@
 <template>
-  <section href="#home" class="home">
-    <h1 class="pageTitle">Breitling League</h1>
+  <section href="#home" class="home centered">
+    <div class="learningWrapper centered">
+      <h1 class="pageTitle">Breitling League</h1>
 
-    <p>
-      The Breitling League is a competition that allows you to challenge your
-      friends and other players in various challenges.
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+      </p>
+
+      <TheProgressBar />
+    </div>
+    <div class="competitionWrapper centered">
+      <h1 class="pageTitle">Competition</h1>
+    <p class="mt-2">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui 
     </p>
 
-    <TheProgressBar />
+    <div class="competitionScore twoColums mt-6">
+      <div class="quarterScore centered">
+        <h2>Quarter’s score</h2>
+        <p class="score">20’000 pts</p>
+      </div>
+      <div class="qualificationScorecentered ">
+        <h2>Qualification’s score</h2>
+        <p class="score">35’579 pts</p>
+      </div>
+    </div>
+    <div class="twoColums mt-6">
+      <a class="quarterScore centered">
+        <h2>1 VS 1</h2>
+        
+      </a>
+      <a class="qualificationScorecentered ">
+        <h2>Quiz Solo</h2>
+        
+      </a>
+    </div>
 
-    <h1 class="pageTitle">Competition</h1>
-    <p>
-      The Breitling League is a competition that allows you to challenge your
-      friends and other players in various challenges.
-    </p>
+    </div>
+
+    
   </section>
 
   <!-- <div>
@@ -46,7 +71,6 @@ const fetchChallenges = async () => {
 
 // Call the fetch function
 //fetchChallenges();
-
 </script>
 
 <style></style>

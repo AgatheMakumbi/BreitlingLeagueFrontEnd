@@ -21,8 +21,17 @@
     @apply text-black text-center text-sm;
   }
   section{
-    @apply text-center items-center justify-items-center;
+    @apply p-6;
   } 
+  
+  .learningWrapper{
+    @apply h-[100wh];
+  }
+  .twoColums{
+    @apply flex flex-row space-x-14 ;
+  }
+
+  
   
 }
 @layer components {
@@ -31,7 +40,7 @@
   }
   /* Progress Bar */
   .progressBarWrapper {
-     @apply w-[70%] p-10 flex flex-col items-center justify-items-center;
+     @apply w-[70%]  flex flex-col items-center justify-items-center;
   } 
   .circular-bar{
     @apply w-24 h-24 rounded-[50%] flex items-center justify-center;
@@ -58,8 +67,9 @@
     @apply text-black text-center  text-lg;
     
   }
-  
-
+  .centered {
+    @apply text-center items-center justify-items-center;
+  }
 }
 
 

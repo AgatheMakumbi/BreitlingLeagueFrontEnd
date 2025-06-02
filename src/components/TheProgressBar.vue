@@ -6,7 +6,7 @@
       <label class="progressLabel">Novelties</label>
     </div>
 </template>
-<script setup>
+<script setup>  
 import { onMounted, ref } from "vue";
 // javascript for circular progress bar
 onMounted(() => {
@@ -20,7 +20,7 @@ onMounted(() => {
   //increase the value each 10ms then update the progress and text content
   const timer = setInterval(() => {
     initialValue.value++;
-    console.log(initialValue.value);
+    //console.log(initialValue.value);
 
     const degree = (initialValue.value / 100) * 360;
     circularBar.style.background = `conic-gradient(#ffc72c ${degree}deg, #ffe08d 0deg)`;

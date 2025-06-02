@@ -1,44 +1,97 @@
 <template>
   <section href="#home" class="home centered">
-    <div class="learningWrapper centered">
-      <h1 class="pageTitle">Breitling League</h1>
+    <div class="heroWrapper centered">
+      <h1 class="pageTitleHero">Breitling <span>League</span></h1>
 
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+      <p class="pageDescriptionHero">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui
       </p>
 
       <TheProgressBar />
     </div>
-    <div class="competitionWrapper centered">
+    <div class="mainWrapper centered">
       <h1 class="pageTitle">Competition</h1>
-    <p class="mt-2">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui 
-    </p>
+      <p class="pageDescription">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui
+      </p>
 
-    <div class="competitionScore twoColums mt-6">
-      <div class="quarterScore centered">
-        <h2>Quarter’s score</h2>
-        <p class="score">20’000 pts</p>
+      <!--Composante Competion Score-->
+      <div class="competitionScoresWrapper">
+        <div class="QScore">
+          <div class="QTextWrapper">
+            <div class="QScoreLabel">Quarter’s score</div>
+          </div>
+          <div class="QTextWrapper">
+            <div class="QScoreValue">10’000 pts</div>
+          </div>
+        </div>
+        <div class="QScore">
+          <div class="QTextWrapper">
+            <div class="QScoreLabel">Qualification’s score</div>
+          </div>
+          <div class="QTextWrapper">
+            <div class="QScoreValue">35’579 pts</div>
+          </div>
+        </div>
       </div>
-      <div class="qualificationScorecentered ">
-        <h2>Qualification’s score</h2>
-        <p class="score">35’579 pts</p>
+
+      <!--Composante game mode toggle-->
+      <div class="gameModeWrapper">
+        <div class="gameModeToggleWrapper">
+          <div data-state="Active" class="gameModeToggleButton">
+            <div class="gameModeToggleText">1 vs 1</div>
+          </div>
+        </div>
+        <div class="gameModeToggleWrapper">
+          <div data-state="Default" class="gameModeToggleButton">
+            <div class="gameModeToggleText">quiz solo</div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="twoColums mt-6">
-      <a class="quarterScore centered">
-        <h2>1 VS 1</h2>
-        
-      </a>
-      <a class="qualificationScorecentered ">
-        <h2>Quiz Solo</h2>
-        
-      </a>
+    <!-- Composante 1vs1 -->
+    <div class="mainWrapper centered">
+      <h1 class="pageTitle">1VS1</h1>
+      <p class="pageDescription">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui
+      </p>
+      <div class="turnWrapper">
+        <!--Label top-->
+        <div class="w-80 p-2.5 inline-flex flex flex-row">
+          <div
+            class="justify-self-center items-self-center flex flex-col w-full"
+          >
+            <div class="turnLabel">Your turn</div>
+          </div>
+          <div class="right-0 absolute">
+            <ArrowRight color="#757575" />
+          </div>
+        </div>
+        <!--Group bottom-->
+        <div class="relative">
+          <!-- Yellow background -->
+          <div class="absolute inset-0 bg-yellow-500 h-10 top-[25%]"></div>
+          <div class="oponentWrapper relative">
+            <div class="flex flex-col justify-center items-center">
+              <div class="oponentAvatarWrapper"></div>
+              <p class="oponentLabel">ChronoAce</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-    </div>
-
-    
   </section>
 
   <!-- <div>
@@ -53,6 +106,8 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import TheProgressBar from "@/components/TheProgressBar.vue";
+import { ArrowRight } from "lucide-vue-next";
+
 const challenges = ref([]);
 
 //fetch http://127.0.0.1:8000/api/challenges

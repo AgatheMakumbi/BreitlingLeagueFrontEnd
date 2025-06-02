@@ -5,6 +5,7 @@
 @theme {
   --font-primary: "italian_plate_no2regular", sans-serif;
   --color-yellow-500: #ffc72c;
+  --color-blue-700: #0E2240; 
 }
 
 @layer base {
@@ -21,7 +22,7 @@
     @apply text-black text-center text-sm;
   }
   section{
-    @apply p-6;
+    @apply box-border;
   } 
   
   .learningWrapper{
@@ -43,16 +44,72 @@
      @apply w-[70%]  flex flex-col items-center justify-items-center;
   } 
   .circular-bar{
-    @apply w-24 h-24 rounded-[50%] flex items-center justify-center;
+    @apply w-36 h-36 rounded-[50%] flex items-center justify-center;
     background: conic-gradient(#ffc72c 1.5deg,#ffe08d 0deg);
     
   }
   .percent{
-    @apply z-10 text-xl bg-white rounded-full w-18 h-18 flex items-center justify-center;
+    @apply text-yellow-500 text-2xl font-bold font-['Italian_Plate_No2'] leading-9 z-10 bg-blue-700 rounded-full w-30 h-30 flex items-center justify-center ;
+    
     
   }
   .progressLabel{
     @apply text-black text-lg mt-4;
+  }
+  /*gameModeToggle*/
+  .gameModeWrapper{
+    @apply p-[5px] inline-flex justify-start items-center;
+  }
+  .gameModeToggleWrapper{
+    @apply bg-blue-700 text-white w-40 h-14 p-1.5 inline-flex flex-col justify-center items-center gap-2.5 ;
+    
+  }
+  .gameModeToggleButton{
+    @apply self-stretch p-3  inline-flex justify-center items-center;
+  }
+  .gameModeToggleText{
+    @apply justify-center text-lg uppercase leading-none ;
+  }
+  div[data-state="Active"] {
+    @apply bg-yellow-500 text-black;
+  }
+  /*Competition scores*/
+  .competitionScoresWrapper{
+    @apply p-2.5 inline-flex justify-start items-center gap-7;
+  }
+  .QScore{
+    @apply flex justify-center items-center inline-flex flex-col ;
+  }
+  .QScoreLabel{
+    @apply text-center justify-start text-black text-lg font-medium font-['Italian_Plate_No2'] leading-relaxed;
+  }
+  .QTextWrapper{
+    @apply p-2.5 inline-flex justify-center items-center gap-2.5;
+  }
+  .QScoreValue{
+    @apply text-center justify-start text-black text-3xl font-bold font-['Italian_Plate_No2'] leading-10;
+  }
+  /*1VS1 GAME MODE*/
+  .turnWrapper{
+    @apply w-80 h-40 relative 
+  }
+  .turnLabel{
+    @apply top-0 text-center justify-start text-black text-base font-bold font-['Italian_Plate_No2']
+  }
+  .turnLabel::after{
+     content: ;
+  }
+
+  /*Turn component*/
+  .oponentWrapper{
+    @apply box-border w-80  inline-flex justify-start items-center gap-9 p-2.5 ;
+  }
+  .oponentAvatarWrapper{
+    @apply w-20 h-20  rounded-[100px] outline-2 
+              bg-[url(src/assets/avatar.png)] bg-cover bg-center
+  }
+  .oponentLabel{
+    @apply text-black text-base;
   }
 
 }
@@ -60,11 +117,32 @@
   .text-center {
     @apply text-center;
   }
+  .heroWrapper{
+    @apply h-[692px] p-6 bg-[url(src/assets/images/backgrounds/hero-bg.png)] bg-cover bg-center  
+    flex flex-col gap-10 justify-center ;
+  }
+  .mainWrapper{
+    @apply p-6 
+    flex flex-col gap-4;
+  }
   .pageTitle {
-    @apply text-2xl leading-relaxed uppercase;
+    @apply text-black text-4xl font-medium font-['Italian_Plate_No2'] uppercase leading-[60px];
+  }
+  .pageTitleHero{
+    @apply 
+    text-4xl font-medium font-['Italian_Plate_No2'] uppercase leading-[60px] text-white;
+  }
+  .pageTitleHero span{
+    @apply text-yellow-500;
+  }
+  .pageDescriptionHero{
+    @apply text-lg text-white;
+  }
+  .pageDescription{
+    @apply  text-black mt-2;
   }
   .progressLabel{
-    @apply text-black text-center  text-lg;
+    @apply text-white text-center  text-lg;
     
   }
   .centered {

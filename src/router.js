@@ -7,6 +7,8 @@ import Scrolllytelling from "./components/pages/Scrolllytelling.vue";
 import BreitlingCup from "./components/pages/BreitlingCup.vue";
 import BreitlingLeague from "./components/pages/BreitlingLeague.vue";
 import UserProfile from "./components/pages/UserProfile.vue";
+import Page1vs1Friend from './components/LeagueSubPages/Page1vs1Friend.vue';
+import Page1vs1Random from './components/LeagueSubPages/Page1vs1Random.vue';
 
 const routes = [
     { path: '/', name: 'home', component: HomePage },
@@ -16,7 +18,13 @@ const routes = [
     { path: '/140-years', name: 'years', component: Scrolllytelling },
     { path: '/cup', name: 'cup', component: BreitlingCup },
     { path: '/league', name: 'league', component: BreitlingLeague },
-    { path: '/user-profile', name: 'profile', component: UserProfile }
+    { path: '/user-profile', name: 'profile', component: UserProfile },
+    {
+        path: '/league/friends-duels', name: 'friend', component: Page1vs1Friend
+    },
+    {
+        path: '/league/random-duels', name: 'random', component: Page1vs1Random
+    },
 ];
 
 const router = createRouter({

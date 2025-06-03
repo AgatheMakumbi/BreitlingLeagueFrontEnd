@@ -25,20 +25,7 @@
 
       <CompetitionUserScore />
 
-      <!--Composante game mode toggle-->
-      <div class="gameModeWrapper">
-        <!--on click on the button, change the data-state attribute-->
-        <div @click="toggleMode" class="gameModeToggleWrapper">
-          <div data-state="Active" class="gameModeToggleButton">
-            <div class="gameModeToggleText">1vs1</div>
-          </div>
-        </div>
-        <div @click="toggleMode" class="gameModeToggleWrapper">
-          <div data-state="Default" class="gameModeToggleButton">
-            <div class="gameModeToggleText">Solo quizz</div>
-          </div>
-        </div>
-      </div>
+      <TheToggleMode option-one="1vs1" option-two="Solo quizz" />
     </div>
     
     <div class="gameModeContentWrapper">
@@ -66,31 +53,15 @@ import CompetitionUserScore from "@/components/CompetitionUserScore.vue";
 import Competition1vs1 from "@/components/Competition1vs1.vue";
 import CompetitionSoloQuizz from "@/components/CompetitionSoloQuizz.vue";
 import CompetitionRanking from "@/components/CompetitionRanking.vue";
+import { gameModeState } from '@/stores/globals';
+import TheToggleMode from '@/components/TheToggleMode.vue';
 
 
 
 const challenges = ref([]);
 
 
-const gameModeState = ref('1vs1') // Add state to track current gamemode
 
-
-// Function to toggle game mode
-const toggleMode = (event) => {
-  const wrapper = event.currentTarget
-  const button = wrapper.querySelector('.gameModeToggleButton')
-  
-  // Get all toggle buttons and reset their state
-  const allButtons = document.querySelectorAll('.gameModeToggleButton')
-  allButtons.forEach(btn => btn.setAttribute('data-state', 'Default'))
-  
-  // Set clicked button to active
-  button.setAttribute('data-state', 'Active')
-  
-  // Update game mode state
-  gameModeState.value = button.querySelector('.gameModeToggleText').textContent.trim()
-  
-}
 //fetch http://127.0.0.1:8000/api/challenges
 // to get the challenges and display them in the template
 // Fetch challenges and update the ref

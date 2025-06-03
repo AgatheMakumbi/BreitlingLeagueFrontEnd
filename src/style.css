@@ -103,8 +103,8 @@
     @apply box-border inline-flex justify-start items-center gap-9 p-2.5 ;
   }
   .oponentAvatarWrapper{
-    @apply w-20 h-20  rounded-[100px] outline-2 
-              bg-[url(src/assets/avatar.png)] bg-cover bg-center
+    @apply w-20 h-20  rounded-[100px] outline-2 rounded-full object-cover 
+              
   }
   .oponentLabel{
     @apply text-black text-base;
@@ -112,6 +112,15 @@
 
 }
 @layer utilities {
+  .buttonAnimation {
+    @apply hover:translate-y-[-2px] transition-transform duration-200 hover:bg-blue-700 hover:text-white ;
+  }
+  .toggleAnimation {
+    @apply hover:transition-transform duration-200 hover:bg-yellow-200 hover:text-black 
+    hover:cursor-pointer;
+  }
+    
+  
   .text-center {
     @apply text-center;
   }

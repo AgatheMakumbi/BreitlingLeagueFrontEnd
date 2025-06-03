@@ -23,75 +23,31 @@
         occaecat cupidatat non proident, sunt in culpa qui
       </p>
 
-      <!--Composante Competion Score-->
-      <div class="competitionScoresWrapper">
-        <div class="QScore">
-          <div class="QTextWrapper">
-            <div class="QScoreLabel">Quarter’s score</div>
-          </div>
-          <div class="QTextWrapper">
-            <div class="QScoreValue">10’000 pts</div>
-          </div>
-        </div>
-        <div class="QScore">
-          <div class="QTextWrapper">
-            <div class="QScoreLabel">Qualification’s score</div>
-          </div>
-          <div class="QTextWrapper">
-            <div class="QScoreValue">35’579 pts</div>
-          </div>
-        </div>
-      </div>
+      <CompetitionUserScore />
 
       <!--Composante game mode toggle-->
       <div class="gameModeWrapper">
-        <div class="gameModeToggleWrapper">
+        <!--on click on the button, change the data-state attribute-->
+        <div @click="toggleMode" class="gameModeToggleWrapper">
           <div data-state="Active" class="gameModeToggleButton">
-            <div class="gameModeToggleText">1 vs 1</div>
+            <div class="gameModeToggleText">1vs1</div>
           </div>
         </div>
-        <div class="gameModeToggleWrapper">
+        <div @click="toggleMode" class="gameModeToggleWrapper">
           <div data-state="Default" class="gameModeToggleButton">
-            <div class="gameModeToggleText">quiz solo</div>
+            <div class="gameModeToggleText">Solo quizz</div>
           </div>
         </div>
       </div>
     </div>
-    <!-- Composante 1vs1 -->
-    <div class="mainWrapper centered">
-      <h1 class="pageTitle">1VS1</h1>
-      <p class="pageDescription">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui
-      </p>
-      <div class="turnWrapper">
-        <!--Label top-->
-        <div class="w-[80vw] p-2.5 inline-flex flex flex-row">
-          <div
-            class="justify-self-center items-self-center flex flex-col w-full"
-          >
-            <div class="turnLabel">Your turn</div>
-          </div>
-          <div class="right-0 absolute">
-            <ArrowRight color="#757575" />
-          </div>
-        </div>
-        <!--Group bottom-->
-        <div class="relative">
-          <!-- Yellow background -->
-          <div class="absolute inset-0 bg-yellow-500 h-10 top-[25%]"></div>
-          <div class="oponentWrapper relative">
-            <div class="flex flex-col justify-center items-center">
-              <div class="oponentAvatarWrapper"></div>
-              <p class="oponentLabel">ChronoAce</p>
-            </div>
-          </div>
-        </div>
-      </div>
+    
+    <div class="gameModeContentWrapper">
+      
+      <Competition1vs1 v-if="gameModeState === '1vs1'" />
+      <CompetitionSoloQuizz v-if="gameModeState === 'Solo quizz'" />
     </div>
+    <CompetitionRanking />
+    
   </section>
 
   <!-- <div>
@@ -106,10 +62,35 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import TheProgressBar from "@/components/TheProgressBar.vue";
-import { ArrowRight } from "lucide-vue-next";
+import CompetitionUserScore from "@/components/CompetitionUserScore.vue";
+import Competition1vs1 from "@/components/Competition1vs1.vue";
+import CompetitionSoloQuizz from "@/components/CompetitionSoloQuizz.vue";
+import CompetitionRanking from "@/components/CompetitionRanking.vue";
+
+
 
 const challenges = ref([]);
 
+
+const gameModeState = ref('1vs1') // Add state to track current gamemode
+
+
+// Function to toggle game mode
+const toggleMode = (event) => {
+  const wrapper = event.currentTarget
+  const button = wrapper.querySelector('.gameModeToggleButton')
+  
+  // Get all toggle buttons and reset their state
+  const allButtons = document.querySelectorAll('.gameModeToggleButton')
+  allButtons.forEach(btn => btn.setAttribute('data-state', 'Default'))
+  
+  // Set clicked button to active
+  button.setAttribute('data-state', 'Active')
+  
+  // Update game mode state
+  gameModeState.value = button.querySelector('.gameModeToggleText').textContent.trim()
+  
+}
 //fetch http://127.0.0.1:8000/api/challenges
 // to get the challenges and display them in the template
 // Fetch challenges and update the ref

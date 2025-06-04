@@ -142,6 +142,11 @@
   .pageTitleHero span{
     @apply text-yellow-500;
   }
+
+  .pageBio{
+    @apply text-center justify-start text-white text-xl font-medium font-['Italian_Plate_No2'] leading-loose;
+  }
+
   .pageDescriptionHero{
     @apply text-lg text-white;
   }

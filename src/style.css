@@ -124,10 +124,17 @@
   .text-center {
     @apply text-center;
   }
+
   .heroWrapper{
     @apply h-[692px] p-6 bg-[url(src/assets/images/backgrounds/hero-bg.png)] bg-cover bg-center  
     flex flex-col gap-10 justify-center ;
   }
+
+  .quizWrapper{
+    @apply h-[800px] p-6 bg-[url(src/assets/images/backgrounds/bg-quiz.png)] bg-cover bg-center  
+    flex flex-col gap-5 justify-center ;
+  }
+
   .mainWrapper{
     @apply p-6 
     flex flex-col gap-4;
@@ -159,6 +166,10 @@
   }
   .centered {
     @apply text-center items-center justify-items-center;
+  }
+  .force-white-text,
+  .force-white-text * {
+    color: white !important;
   }
 }
 

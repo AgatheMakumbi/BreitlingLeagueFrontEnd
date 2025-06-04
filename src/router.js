@@ -11,6 +11,7 @@ import Page1vs1Friend from './components/LeagueSubPages/Page1vs1Friend.vue';
 import Page1vs1Random from './components/LeagueSubPages/Page1vs1Random.vue';
 import OnBoarding from './components/LeagueSubPages/OnBoarding.vue';
 import Profile1vs1 from './components/LeagueSubPages/Profile1vs1.vue';
+import FinishedQuiz from './components/LeagueSubPages/FinishedQuiz.vue';
 
 const routes = [
     { path: '/', name: 'home', component: HomePage },
@@ -32,6 +33,9 @@ const routes = [
     },
     {
         path: '/league/profile1vs1', name: 'profile1vs1', component: Profile1vs1
+    },
+    {
+        path: '/league/finishedquiz', name: 'finishedquiz', component: FinishedQuiz
     }
 ];
 

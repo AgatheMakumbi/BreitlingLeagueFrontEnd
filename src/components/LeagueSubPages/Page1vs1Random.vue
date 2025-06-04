@@ -1,5 +1,8 @@
 <template >
    <div class="heroWrapper centered">
+      <TheBackButton />
+    
+   
       <h1 class="pageTitleHero">1vs1 with <span>a random</span></h1>
 
       <p class="pageDescriptionHero">
@@ -13,7 +16,10 @@
     </div>
 
      <div class="mainWrapper centered">
-      <OpponnentPresentation/>
+     <!--Pass the random player to OpponnentPresentation -->
+    
+       <OpponnentPresentation  v-if="randomPlayer" :oponent-avatar="randomPlayer.avatar" :oponent-pseudo="randomPlayer.pseudo" /> 
+
       <BetChoice1vs1/>
       <TheButtonPrimary label-name="start 1vs1" /> 
      </div>
@@ -21,12 +27,30 @@
     
 </template>
 <script setup>
-import { ref } from "vue";
-import { RouterLink } from "vue-router";
+import { ref, onMounted,defineExpose } from "vue";
+
 import TheButtonPrimary from '@/components/TheButtonPrimary.vue';
 import BetChoice1vs1 from "./BetChoice1vs1.vue";
 import OpponnentPresentation from "../OpponentPresentation.vue";
+import {rankingData} from '@/stores/globals.js';
+import TheBackButton from "../TheBackButton.vue";
 
+//pick random player from rankingData
+const randomPlayer = ref(null);
+function pickRandomPlayer() {
+  const players = rankingData;
+  if (players.length > 0) {
+    const randomIndex = Math.floor(Math.random() * players.length);
+    randomPlayer.value = players[randomIndex];
+  }
+}
+onMounted(() => {
+  pickRandomPlayer();
+});
+// Expose the random player to the template
+defineExpose({
+  randomPlayer
+});
 </script>
 <style >
     

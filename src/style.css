@@ -126,7 +126,7 @@
   }
 
   .heroWrapper{
-    @apply h-[692px] p-6 bg-[url(src/assets/images/backgrounds/hero-bg.png)] bg-cover bg-center  
+    @apply min-h-[692px] p-6 bg-[url(src/assets/images/backgrounds/hero-bg.png)] bg-cover bg-center  
     flex flex-col gap-10 justify-center ;
   }
 

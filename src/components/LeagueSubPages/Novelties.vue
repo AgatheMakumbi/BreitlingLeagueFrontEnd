@@ -13,9 +13,17 @@
             <CompetitionUserScore /> <!--Modifier les scores pour dynamiques -->
         </div>
     </div>
+    <div class="centered">
+        <img class="w-80 h-48 mt-[50px]" src="/src/assets/imgMontre.png" />
+    </div>
+    <div class="centered mt-[40px] mb-[77px]">
+        <TheButtonPrimary label-name="league" />
+    </div>
 </template>
+
 <script setup>
 import TheProgressBar from "@/components/TheProgressBar.vue";
 import CompetitionUserScore from "@/components/CompetitionUserScore.vue";
+import TheButtonPrimary from '@/components/TheButtonPrimary.vue';
 </script>
 <style setup></style>

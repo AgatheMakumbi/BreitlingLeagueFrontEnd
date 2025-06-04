@@ -63,7 +63,7 @@ const userAvatar = '../assets/avatar.png'
       <RouterLink to="/140-years" class="hover:text-white">Scrolllytelling</RouterLink>
       <RouterLink to="/cup" class="hover:text-white">Breitling Cup</RouterLink>
       <RouterLink to="/league" class="hover:text-white">Breitling League</RouterLink>
-      <RouterLink to="/league/noveltiesTheory" class="hover:text-white">Novelties Theory</RouterLink>
+      <RouterLink to="/league/minigameMemory" class="hover:text-white">memory</RouterLink>
     </div>
   </header> 
 </template>

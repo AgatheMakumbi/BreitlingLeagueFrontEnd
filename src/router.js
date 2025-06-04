@@ -49,6 +49,9 @@ const routes = [
     },
     {
         path: '/league/noveltiesTheory', name: 'noveltiesTheory', component: NoveltiesTheory
+    },
+    {
+        path: '/league/minigameMemory', name: 'minigameMemory', component: MiniGameMemory
     }
 ];
 

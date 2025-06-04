@@ -1,5 +1,6 @@
 <template>
     <div class="centered">
+        <TheBackButton />
         <h1 class="pageTitleHero force-black-text mt-15">End of the mini game</h1>
         <h2 class="pageTitle2 mt-7 mb-3">Summary of Breitling's story</h2>
         <p class="centered mx-10">
@@ -32,5 +33,6 @@
 </template>
 <script setup>
 import TheButtonPrimary from '@/components/TheButtonPrimary.vue';
+import TheBackButton from '@/components/TheBackButton.vue';
 </script>
 <style setup></style>

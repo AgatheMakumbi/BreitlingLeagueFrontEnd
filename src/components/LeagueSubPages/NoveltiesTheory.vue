@@ -1,5 +1,7 @@
 <template>
     <div class="centered">
+        <TheBackButton />
+        
         <h1 class="pageTitleHero force-black-text mt-15">History</h1>
         <p class="mt-7 mx-10">
             In this presentation, you will discover that although a brand’s reputation is typically built over several
@@ -70,5 +72,6 @@
 </template>
 <script setup>
 import TheButtonPrimary from '@/components/TheButtonPrimary.vue';
+import TheBackButton from '@/components/TheBackButton.vue';
 </script>
 <style setup></style>

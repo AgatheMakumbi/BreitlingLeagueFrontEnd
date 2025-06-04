@@ -13,6 +13,8 @@ import OnBoarding from './components/LeagueSubPages/OnBoarding.vue';
 import Profile1vs1 from './components/LeagueSubPages/Profile1vs1.vue';
 import FinishedQuiz from './components/LeagueSubPages/FinishedQuiz.vue';
 import Novelties from './components/LeagueSubPages/Novelties.vue';
+import NoveltiesEndMiniGame from './components/LeagueSubPages/NoveltiesEndMiniGame.vue';
+
 
 const routes = [
     { path: '/', name: 'home', component: HomePage },
@@ -40,6 +42,9 @@ const routes = [
     },
     {
         path: '/league/novelties', name: 'novelties', component: Novelties
+    },
+    {
+        path: '/league/noveltiesEndMiniGame', name: 'noveltiesEndMiniGame', component: NoveltiesEndMiniGame
     }
 ];
 

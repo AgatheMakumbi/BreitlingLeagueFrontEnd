@@ -154,6 +154,10 @@
     @apply text-center justify-start text-white text-xl font-medium font-['Italian_Plate_No2'] leading-loose;
   }
 
+  .pageTitle2{
+    @apply text-center justify-start text-black text-2xl font-medium font-['Italian_Plate_No2'] uppercase leading-10;
+  }
+
   .pageDescriptionHero{
     @apply text-lg text-white;
   }
@@ -172,6 +176,10 @@
     color: white !important;
   }
 
+  .force-black-text,
+  .force-black-text * {
+    color: black !important;
+  }
 }
 
 

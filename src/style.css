@@ -171,6 +171,12 @@
   .force-white-text * {
     color: white !important;
   }
+
+  .force-height,
+  .force-height * {
+    height: 850px !important; /* adapte la valeur à ton besoin */
+  }
+
 }
 
 

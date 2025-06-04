@@ -15,6 +15,7 @@ import FinishedQuiz from './components/LeagueSubPages/FinishedQuiz.vue';
 import Novelties from './components/LeagueSubPages/Novelties.vue';
 import NoveltiesEndMiniGame from './components/LeagueSubPages/NoveltiesEndMiniGame.vue';
 import NoveltiesTheory from './components/LeagueSubPages/NoveltiesTheory.vue';
+import MiniGameMemory from './components/LeagueSubPages/MiniGameMemory.vue';
 
 
 const routes = [

@@ -161,6 +161,11 @@
   .pageDescriptionHero{
     @apply text-lg text-white;
   }
+
+  .pageDescriptionHeroY{
+    @apply text-lg text-yellow-500;
+  }
+
   .pageDescription{
     @apply  text-black mt-2;
   }

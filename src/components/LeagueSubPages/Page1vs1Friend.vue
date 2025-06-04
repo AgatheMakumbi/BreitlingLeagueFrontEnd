@@ -1,5 +1,7 @@
 <template >
    <div class="heroWrapper centered">
+    
+      <TheBackButton />
       <h1 class="pageTitleHero">1vs1 with <span>a friend</span></h1>
 
       <p class="pageDescriptionHero">
@@ -45,6 +47,7 @@
 </template>
 <script setup>
 import { ref } from 'vue'
+import TheBackButton from '@/components/TheBackButton.vue'
 
 
 const selectedOpponent = ref(null)

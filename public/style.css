@@ -1,0 +1,186 @@
+@import "/tailwind.css";
+@import "/font/stylesheet.css";
+
+
+@theme {
+  --font-primary: "italian_plate_no2regular", sans-serif;
+  --color-yellow-500: #ffc72c;
+  --color-blue-700: #0E2240; 
+}
+
+@layer base {
+  body {
+    @apply bg-white ;
+    font-family: var(--font-primary);
+  }
+
+  
+  a {
+    @apply text-black no-underline hover:no-underline;
+  }
+  section p {
+    @apply text-black text-center text-sm;
+  }
+  section{
+    @apply box-border;
+  } 
+  
+  .learningWrapper{
+    @apply h-[100wh];
+  }
+  .twoColums{
+    @apply flex flex-row space-x-14 ;
+  }
+
+  
+  
+}
+@layer components {
+  .mobileImage {
+    @apply w-full h-auto object-cover;
+  }
+  /* Progress Bar */
+  .progressBarWrapper {
+     @apply w-[70%]  flex flex-col items-center justify-items-center;
+  } 
+  .circular-bar{
+    @apply w-36 h-36 rounded-[50%] flex items-center justify-center;
+    background: conic-gradient(#ffc72c 1.5deg,#ffe08d 0deg);
+    
+  }
+  .percent{
+    @apply text-yellow-500 text-2xl font-bold font-['Italian_Plate_No2'] leading-9 z-10 bg-blue-700 rounded-full w-30 h-30 flex items-center justify-center ;
+    
+    
+  }
+  .progressLabel{
+    @apply text-black text-lg mt-4;
+  }
+  /*gameModeToggle*/
+  .gameModeWrapper{
+    @apply p-[5px] inline-flex justify-start items-center;
+  }
+  .gameModeToggleWrapper{
+    @apply bg-blue-700 text-white w-40 h-14 p-1.5 inline-flex flex-col justify-center items-center gap-2.5 ;
+    
+  }
+  .gameModeToggleButton{
+    @apply self-stretch p-3  inline-flex justify-center items-center;
+  }
+  .gameModeToggleText{
+    @apply justify-center text-lg uppercase leading-none ;
+  }
+  div[data-state="Active"] {
+    @apply bg-yellow-500 text-black;
+  }
+  /*Competition scores*/
+  .competitionScoresWrapper{
+    @apply p-2.5 inline-flex justify-start items-center gap-7;
+  }
+  .QScore{
+    @apply flex justify-center items-center inline-flex flex-col ;
+  }
+  .QScoreLabel{
+    @apply text-center justify-start text-black text-lg font-medium font-['Italian_Plate_No2'] leading-relaxed;
+  }
+  .QTextWrapper{
+    @apply p-2.5 inline-flex justify-center items-center gap-2.5;
+  }
+  .QScoreValue{
+    @apply text-center justify-start text-black text-3xl font-bold font-['Italian_Plate_No2'] leading-10;
+  }
+  /*1VS1 GAME MODE*/
+  .turnWrapper{
+    @apply  relative 
+  }
+  .turnLabel{
+    @apply top-0 text-center justify-start text-black text-base font-bold font-['Italian_Plate_No2']
+  }
+  
+
+  /*Turn component*/
+  .oponentWrapper{
+    @apply box-border inline-flex justify-start items-center gap-9 p-2.5 ;
+  }
+  .oponentAvatarWrapper{
+    @apply w-20 h-20  rounded-[100px] outline-2 rounded-full object-cover 
+              
+  }
+  .oponentLabel{
+    @apply text-black text-base;
+  }
+
+}
+@layer utilities {
+  .errorMessages {
+    @apply text-red-500 text-sm font-medium;
+  }
+  .successMessages {
+    @apply text-green-500 text-sm font-medium;
+  }
+  .buttonAnimation {
+    @apply hover:translate-y-[-2px] transition-transform duration-200 hover:bg-blue-700 hover:text-white ;
+  }
+  .toggleAnimation {
+    @apply hover:transition-transform duration-200 hover:bg-yellow-200 hover:text-black 
+    hover:cursor-pointer;
+  }
+    
+  
+  .text-center {
+    @apply text-center;
+  }
+  .heroWrapper{
+    @apply min-h-[692px] p-6 bg-[url(src/assets/images/backgrounds/hero-bg.png)] bg-cover bg-center  
+    flex flex-col gap-10 justify-center ;
+  }
+  .mainWrapper{
+    @apply p-6 
+    flex flex-col gap-4;
+  }
+  .pageTitle {
+    @apply text-black text-4xl font-medium font-['Italian_Plate_No2'] uppercase leading-[60px];
+  }
+  .pageTitleHero{
+    @apply 
+    text-4xl font-medium font-['Italian_Plate_No2'] uppercase leading-[60px] text-white;
+  }
+  .pageTitleHero span{
+    @apply text-yellow-500;
+  }
+  .pageDescriptionHero{
+    @apply text-lg text-white;
+  }
+  .pageDescription{
+    @apply  text-black mt-2;
+  }
+  .progressLabel{
+    @apply text-white text-center  text-lg;
+    
+  }
+  .centered {
+    @apply text-center items-center justify-items-center;
+  }
+}
+
+
+
+@layer screens {
+  @media (min-width: 640px) {
+    .sm\:text-lg {
+      @apply text-lg;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .md\:text-xl {
+      @apply text-xl;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .lg\:text-2xl {
+      @apply text-2xl;
+    }
+  }
+}

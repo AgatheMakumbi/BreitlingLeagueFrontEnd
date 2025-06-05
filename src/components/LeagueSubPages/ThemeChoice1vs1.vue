@@ -1,6 +1,6 @@
-<template lang="">
+<template >
     
-    <div class="mainWrapper centered">
+    
         
       <h1 class="pageTitle">Choose your theme</h1>
       <p class="pageDescription">
@@ -11,7 +11,8 @@
         occaecat cupidatat non proident, sunt in culpa qui
       </p>
         <!-- Liste scrollable toujours visible -->
-    <ul class="border border-gray-300 rounded-md max-h-64 w-[90%] overflow-y-auto shadow-sm bg-white divide-y">
+    <ul class="border-3
+    border-yellow-500 rounded-md max-h-64 w-[90%] overflow-y-auto shadow-sm bg-white divide-y">
       <li
         v-for="theme in themes"
         :key="theme.id"
@@ -28,17 +29,47 @@
         </div>
       </li>
     </ul>
-  </div>
+
+    <p class="errorMessages"></p>
+   
+      <TheButtonPrimary
+        label-name="Next" 
+        @click="handleVerification"
+      />
+    
 </template>
 <script setup>
-import { ref } from 'vue'
+
+//import TheButtonSecondary from '../TheButtonSecondary.vue'
+
+
+import { selectedTheme } from '../../stores/globals'
+import { verifySelection } from '@/stores/helpers.js'
+import TheButtonPrimary from '../TheButtonPrimary.vue';
+
+const emit = defineEmits(['update:isThemeSelected']);
+
+// Add props to receive the state
+const props = defineProps({
+  isThemeSelected: {
+    type: Boolean,
+    required: true
+  }
+})
 
 
 
-const selectedTheme = ref(null)
+const handleVerification = () => {
+  verifySelection(selectedTheme.value, emit,'Please select a theme first.')
+}
+
+
+
+
 
 function selecttheme(theme) {
-  selectedTheme.value = theme
+  selectedTheme.value = theme;
+  document.querySelector(".errorMessages").textContent = ""
 }
 
 const themes = [

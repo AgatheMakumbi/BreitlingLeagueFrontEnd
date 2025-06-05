@@ -22,7 +22,8 @@ const props = defineProps({
   },
   link: {
     type: String,
-    required: true
+    required: false,
+    default: '/league/friends-duels'
   }
 })
 </script>

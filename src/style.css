@@ -112,6 +112,12 @@
 
 }
 @layer utilities {
+  .errorMessages {
+    @apply text-red-500 text-sm font-medium;
+  }
+  .successMessages {
+    @apply text-green-500 text-sm font-medium;
+  }
   .buttonAnimation {
     @apply hover:translate-y-[-2px] transition-transform duration-200 hover:bg-blue-700 hover:text-white ;
   }

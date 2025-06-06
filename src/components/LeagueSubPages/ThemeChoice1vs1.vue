@@ -1,14 +1,10 @@
 <template lang="">
-    
+
     <div class="mainWrapper centered">
         
       <h1 class="pageTitle">Choose your theme</h1>
       <p class="pageDescription">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui
+        Pick a theme for your 1v1 duel to focus on specific product knowledge areas. This makes the competition more strategic and engaging. Choose from the available themes below and get ready to face your opponent with confidence!
       </p>
         <!-- Liste scrollable toujours visible -->
     <ul class="border border-gray-300 rounded-md max-h-64 w-[90%] overflow-y-auto shadow-sm bg-white divide-y">
@@ -46,33 +42,31 @@ const themes = [
     id: 1,
     name: "history",
   },
-    {
-        id: 2,
-        name: "inspiration",
-    },
-    {
-        id: 3,
-        name: "marketing",
-    },
-    {
-        id: 4,
-        name: "products presenting",
-    },
-    {
-        id: 5,
-        name: "products understanding",
-    },
-    {
-        id: 6,
-        name: "specialist what's new",
-    },
-    {
-        id: 7,
-        name: "From functionality to elegance",
-    }
+  {
+    id: 2,
+    name: "inspiration",
+  },
+  {
+    id: 3,
+    name: "marketing",
+  },
+  {
+    id: 4,
+    name: "products presenting",
+  },
+  {
+    id: 5,
+    name: "products understanding",
+  },
+  {
+    id: 6,
+    name: "specialist what's new",
+  },
+  {
+    id: 7,
+    name: "From functionality to elegance",
+  }
 
 ]
 </script>
-<style >
-    
-</style>
+<style></style>

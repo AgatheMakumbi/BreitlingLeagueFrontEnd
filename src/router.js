@@ -17,7 +17,7 @@ import NoveltiesEndMiniGame from './components/LeagueSubPages/NoveltiesEndMiniGa
 import NoveltiesTheory from './components/LeagueSubPages/NoveltiesTheory.vue';
 import MiniGameMemory from './components/LeagueSubPages/MiniGameMemory.vue';
 import MiniGameFeedback from './components/LeagueSubPages/MiniGameFeedback.vue';
-
+import Quiz from './components/LeagueSubPages/Quiz.vue';
 
 const routes = [
 
@@ -58,6 +58,9 @@ const routes = [
     },
     {
         path: '/league/minigameFeedback', name: 'minigameFeedback', component: MiniGameFeedback
+    },
+    {
+        path: '/league/quiz', name: 'quiz', component: Quiz
     }
 ];
 

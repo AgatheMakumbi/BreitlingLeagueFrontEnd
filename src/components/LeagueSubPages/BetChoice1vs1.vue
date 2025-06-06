@@ -31,11 +31,17 @@
       class="w-20 h-8 text-center justify-center text-black text-lg font-medium font-['Italian_Plate_No2'] leading-relaxed">
       {{ selectedAmount }} points
     </div>
+    <TheButtonPrimary
+      label-name="START"
+
+    />
   </div>
+  
 </template>
 <script setup>
 import { ref, watch } from 'vue';
 import { selectedAmount } from '../../stores/globals'
+import TheButtonPrimary from '../TheButtonPrimary.vue';
 
 const emit = defineEmits(['update:isValid'])
 const betAmounts = [1000, 3000, 10000]

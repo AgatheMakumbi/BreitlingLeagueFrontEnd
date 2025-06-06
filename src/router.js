@@ -20,6 +20,7 @@ import MiniGameFeedback from './components/LeagueSubPages/MiniGameFeedback.vue';
 
 
 const routes = [
+
     { path: '/', name: 'home', component: HomePage },
     { path: '/specialist-training', name: 'specialist', component: BreitlingSpecialist },
     { path: '/training-resources', name: 'training', component: TrainingResources },

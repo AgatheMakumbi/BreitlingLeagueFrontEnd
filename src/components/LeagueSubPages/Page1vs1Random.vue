@@ -22,11 +22,12 @@
     <OpponnentPresentation v-if="randomPlayer" :oponent-avatar="randomPlayer.avatar"
       :oponent-pseudo="randomPlayer.pseudo" />
 
-    <BetChoice1vs1 />
-    <TheButtonPrimary label-name="start 1vs1" />
-  </div>
-
-
+      <BetChoice1vs1/>
+      <ThemeChoice1vs1 />
+      <TheButtonPrimary label-name="start 1vs1" /> 
+     </div>
+    
+    
 </template>
 <script setup>
 import { ref, onMounted, defineExpose } from "vue";
@@ -36,6 +37,7 @@ import BetChoice1vs1 from "./BetChoice1vs1.vue";
 import OpponnentPresentation from "../OpponentPresentation.vue";
 import { rankingData } from '@/stores/globals.js';
 import TheBackButton from "../TheBackButton.vue";
+import ThemeChoice1vs1 from "./ThemeChoice1vs1.vue";
 
 //pick random player from rankingData
 const randomPlayer = ref(null);

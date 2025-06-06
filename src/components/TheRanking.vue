@@ -1,7 +1,7 @@
 <template>
    <!-- Ranking-->
       <div>
-        <div class="flex justify-between items-center mb-4">
+        <div class="flex justify-between items-center mb-4 lg:w-250 sm:w-100">
           <h2 v-if="rankingModeState==='Quarter'" class="text-lg font-semibold">Quarter's Ranking</h2>
             <h2 v-if="rankingModeState==='Qualification'" class="text-lg font-semibold">Qualification's Ranking</h2>
         </div>

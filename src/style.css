@@ -117,6 +117,7 @@
 
   .turnLabel {
     @apply top-0 text-center justify-start text-black text-base font-bold font-['Italian_Plate_No2']
+    lg:text-xl
   }
 
 
@@ -167,7 +168,8 @@
 
   .quizWrapper {
     @apply min-h-[692px] p-6 bg-[url(src/assets/images/backgrounds/bg-quiz.png)] bg-cover bg-center flex flex-col gap-5 justify-center
-    sm:p-30 lg:p-50;
+    sm:p-20 lg:p-30
+    lg:min-h-[350px];
   }
 
   .mainWrapper {
@@ -189,7 +191,8 @@
   }
 
   .pageBio {
-    @apply text-center justify-start text-white text-xl font-medium font-['Italian_Plate_No2'] leading-loose;
+    @apply text-center justify-start text-white text-xl font-medium font-['Italian_Plate_No2'] leading-loose
+    sm:text-2xl lg:text-3xl;
   }
 
   .pageTitle2 {
@@ -231,6 +234,11 @@
   .force-black-text * {
     color: black !important;
   }
+ 
+  .text-justify {
+    text-align: justify;
+  }
+
 }
 
 

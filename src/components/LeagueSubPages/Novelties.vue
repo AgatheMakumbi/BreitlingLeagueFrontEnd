@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="centered">
-        <img class="w-80 h-48 mt-[50px]" src="/src/assets/imgMontre.png" />
+        <img class="w-80 h-48 mt-[50px] lg:w-210 lg:h-115" src="/src/assets/imgMontre.png" />
     </div>
     <div class="centered mt-[40px] mb-[77px]">
         <TheButtonPrimary label-name="league" />

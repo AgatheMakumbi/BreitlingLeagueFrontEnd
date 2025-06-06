@@ -13,10 +13,10 @@
       :class="{ 'bg-yellow-500': selectedOpponent?.rank === player.rank }">
       <img :src="player.avatar" class="w-6 h-6 rounded-full object-cover" />
       <div class="flex flex-row justify-between w-full">
-        <div class="text-sm font-medium">
+        <div class="text-sm font-medium lg:text-lg">
           {{ player.rank }}. {{ player.pseudo }}
         </div>
-        <div class="text-xs text-gray-500">
+        <div class="text-xs text-gray-500 lg:text-lg">
           {{ player.country }} - {{ player.score }} pts
         </div>
       </div>

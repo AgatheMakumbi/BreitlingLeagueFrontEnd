@@ -21,7 +21,7 @@ function updateImage() {
     size = 'Tablet'
   }
 
-  imageSrc.value = `/src/assets/images/pages/${props.pageName}/${props.pageName}${size}.png`
+  imageSrc.value = `/assets/images/pages/${props.pageName}/${props.pageName}${size}.png`
 }
 
 onMounted(() => {

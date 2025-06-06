@@ -18,21 +18,21 @@
         </p>
         <div class="w-100 h-30 flex gap-[20px] mt-10 justify-center">
             <img class="w-40 h-40 object-cover shadow-[0px_4px_4px_rgba(0,0,0,0.25)]"
-                src="/src/assets/MemoryCard.png" />
+                src="/assets/MemoryCard.png" />
             <img class="w-40 h-40 object-cover shadow-[0px_4px_4px_rgba(0,0,0,0.25)]"
-                src="/src/assets/MemoryCard.png" />
+                src="/assets/MemoryCard.png" />
         </div>
         <div class="w-100 h-30 flex gap-[20px] mt-10 justify-center">
             <img class="w-40 h-40 object-cover shadow-[0px_4px_4px_rgba(0,0,0,0.25)]"
-                src="/src/assets/MemoryCard.png" />
+                src="/assets/MemoryCard.png" />
             <img class="w-40 h-40 object-cover shadow-[0px_4px_4px_rgba(0,0,0,0.25)]"
-                src="/src/assets/MemoryCard.png" />
+                src="/assets/MemoryCard.png" />
         </div>
         <div class="w-100 h-30 flex gap-[20px] mt-10 mb-15 justify-center">
             <img class="w-40 h-40 object-cover shadow-[0px_4px_4px_rgba(0,0,0,0.25)]"
-                src="/src/assets/MemoryCard.png" />
+                src="/assets/MemoryCard.png" />
             <img class="w-40 h-40 object-cover shadow-[0px_4px_4px_rgba(0,0,0,0.25)]"
-                src="/src/assets/MemoryCard.png" />
+                src="/assets/MemoryCard.png" />
         </div>
         <div class="centered mb-20">
             <TheButtonPrimary label-name="Next" />
@@ -44,4 +44,4 @@
 import TheBackButton from '@/components/TheBackButton.vue';
 import TheButtonPrimary from '@/components/TheButtonPrimary.vue';
 </script>
-<style setup></style>
+<style setup></style> 

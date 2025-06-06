@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "./assets/font/stylesheet.css";
+/* @import "/assets/font/stylesheet.css"; */
 
 
 @theme {
@@ -132,11 +132,11 @@
   }
 
   .heroWrapper{
-    @apply min-h-[692px] p-6 bg-[url(src/assets/images/backgrounds/hero-bg.png)] bg-cover bg-center flex flex-col gap-10 justify-center ;
+    @apply min-h-[692px] p-6 /* bg-[url(src/assets/images/backgrounds/hero-bg.png)] */ bg-cover bg-center flex flex-col gap-10 justify-center ;
   }
 
   .quizWrapper{
-    @apply min-h-[692px] p-6 bg-[url(src/assets/images/backgrounds/bg-quiz.png)] bg-cover bg-center  
+    @apply min-h-[692px] p-6 /* bg-[url(src/assets/images/backgrounds/bg-quiz.png)] */ bg-cover bg-center  
     flex flex-col gap-5 justify-center ;
   }
 

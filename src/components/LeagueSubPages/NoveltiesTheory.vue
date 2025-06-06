@@ -27,7 +27,7 @@
         <div class="w-96 h-60 relative mt-8 mb-15">
             <div class="w-full h-44 top-[53px] absolute bg-yellow-500"></div>
             <img class="w-80 h-50 mt-5 top-0 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]"
-                src="/src/assets/imgMontre.png" />
+                src="/assets/imgMontre.png" />
         </div>
         <p class="mx-10 mb-15">Building on this rich heritage, Breitling has continually pushed the boundaries of
             innovation and design.
@@ -40,9 +40,9 @@
         </p>
         <div class="w-80 h-36 relative">
             <img class="w-36 h-36 object-cover absolute left-0 top-0 shadow-[0px_4px_4px_rgba(0,0,0,0.25)]"
-                src="/src/assets/imgMontre2.jpg" />
+                src="/assets/imgMontre2.jpg" />
             <img class="w-36 h-36 object-cover left-[166px] top-0 absolute shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]"
-                src="/src/assets/imgMontre3.jpg" />
+                src="/assets/imgMontre3.jpg" />
         </div>
         <h2 class="pageTitle2 force-black-text mt-15">year 1990 - 2000</h2>
         <p class="mt-7 mx-10">

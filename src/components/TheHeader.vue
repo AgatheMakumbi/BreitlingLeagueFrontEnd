@@ -10,7 +10,7 @@ const toggleMobileMenu = () => {
 }
 
 // À remplacer dynamiquement selon l'utilisateur connecté
-const userAvatar = '../assets/avatar.png'
+const userAvatar = '/assets/avatar.png'
 
 </script>
 
@@ -22,8 +22,8 @@ const userAvatar = '../assets/avatar.png'
       <!-- Left side: logo + branding -->
       <div class="flex items-center space-x-4">
         <RouterLink to="/" class="flex items-center">
-          <img src="../assets/animated-breitling-challenge.gif" alt="Breitling Challenge" class="h-10 hidden md:inline" />
-          <img src="../assets/140.svg" alt="140 Years" class="h-10 ml-4 border-l border-black pl-4 hidden md:inline" />
+          <img src="/assets/animated-breitling-challenge.gif" alt="Breitling Challenge" class="h-10 hidden md:inline" />
+          <img src="/assets/140.svg" alt="140 Years" class="h-10 ml-4 border-l border-black pl-4 hidden md:inline" />
         </RouterLink>
       </div>
 
@@ -43,7 +43,7 @@ const userAvatar = '../assets/avatar.png'
         <RouterLink to="/user-profile" class="hidden md:inline text-sm uppercase">Ma boutique</RouterLink>
         <img
           class="w-10 h-10 rounded-full"
-          src="../assets/avatar.png"
+          src="/assets/avatar.png"
           alt="avatar"
         />
         <!-- Mobile menu toggle (optional) -->

@@ -12,7 +12,7 @@
     <div class="flex flex-col justify-center items-center">
       <img
         class="w-20 h-20 rounded-[100px] outline-2  inline-flex "
-        src="../assets/avatar.png"
+        src="/assets/avatar.png"
       />
       <div
         class=" text-black text-base font-medium text-lg font-['Italian_Plate_No2'] leading-normal p-2.5"
@@ -28,7 +28,7 @@
       <div class="flex flex-col justify-center items-center">
       <img
         class="w-20 h-20 rounded-[100px] outline-2  inline-flex "
-        src="../assets/avatar.png"
+        src="/assets/avatar.png"
       />
       <div
         class=" text-black text-base font-medium text-lg font-['Italian_Plate_No2'] leading-normal p-2.5"

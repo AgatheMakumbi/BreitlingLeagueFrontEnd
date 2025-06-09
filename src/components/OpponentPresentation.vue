@@ -31,7 +31,7 @@
     </div>
     
   </div>
-   <CompetitionUserScore :user1="props.you" :user2="props.opponent"/>
+   <CompetitionUserScore :user-1="props.you" :user-2="props.opponent"/>
    </div>
 </template>
 <script setup>

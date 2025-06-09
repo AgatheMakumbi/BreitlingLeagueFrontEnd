@@ -34,7 +34,7 @@
     class="w-4/5 sm:w-110 lg:w-180 h-auto absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
            shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]
            lg:mt-30"
-    src="/src/assets/imgMontre.png"
+    src="/assets/imgMontre.png"
   />
 </div>
 <div class="max-w-5xl sm:mx-15 mx-15 flex flex-col lg:flex-row items-center lg:items-start justify-center lg:justify-start lg:mx-[30px] mx-10 gap-6 lg:gap-16 my-10 lg:mt-65">
@@ -53,9 +53,9 @@
   <!-- Images côte à côte -->
   <div class="relative w-80 h-36 lg:w-115 lg:h-auto">
     <img class="w-36 h-36 object-cover absolute left-0 top-0 lg:w-40 lg:h-40 shadow-[0px_4px_4px_rgba(0,0,0,0.25)]"
-         src="/src/assets/imgMontre2.jpg" />
+         src="/assets/imgMontre2.jpg" />
     <img class="w-36 h-36 object-cover absolute left-[166px] top-0 lg:w-40 lg:h-40 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]"
-         src="/src/assets/imgMontre3.jpg" />
+         src="/assets/imgMontre3.jpg" />
   </div>
 
 </div>

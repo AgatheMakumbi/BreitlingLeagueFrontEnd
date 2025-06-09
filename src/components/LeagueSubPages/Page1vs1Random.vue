@@ -69,9 +69,8 @@ if(!isBetSelected.value){
     return;
     }else{
       // navigation to the game page
-      router.push({ name: 'finishedquiz', query: { bet: isBetSelected.value } })
+      router.push({ name: 'quiz', query: { bet: isBetSelected.value } }) 
       console.log("Bet amount selected:", isBetSelected.value);
-
     }
   }
 onMounted(() => {

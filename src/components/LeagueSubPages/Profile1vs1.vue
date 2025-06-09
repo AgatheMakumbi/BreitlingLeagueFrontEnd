@@ -1,7 +1,7 @@
 <template>
     <div class="heroWrapper centered">
         <h1 class="pageTitleHero">User <span>Profile</span></h1>
-        <img class="w-48 h-48" src="/assets/UserProfileImg.png" />
+        <img class="w-43 h-43 lg:w-38 lg:h-38" src="/assets/UserProfileImg.png" />
         <h5 class="pageBio">Alex Martin</h5>
         <p class="pageDescriptionHero">
             Passionate about learning and always ready to take on new challenges, I believe growth comes from curiosity

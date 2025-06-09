@@ -4,11 +4,11 @@
     <h1 class="pageTitleHero">1vs1 with <span>{{isOpponentSelected ? `${isOpponentSelected.pseudo}` : 'a Friend'}}</span></h1>
 
     <p class="pageDescriptionHero">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut voluptate velit
-      esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui
+      The 1v1 with a Friend feature adds a fun and social dimension to the Breitling League. It allows players to
+      challenge colleagues from their own boutique directly, choosing specific topics for the duel to focus on areas
+      they want to improve. This personalized competition encourages teamwork and friendly rivalry, helping participants
+      motivate each other to learn more effectively. By competing with familiar faces, players can sharpen their
+      knowledge while earning valuable points toward their overall ranking.
     </p>
   </div>
   <div class="mainWrapper centered">

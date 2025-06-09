@@ -1,5 +1,5 @@
 <template>
-  <h1 class="pageTitle">Choose your bet</h1>
+  <h1 class="pageTitle mt-15">Choose your bet</h1>
   <p class="pageDescription">
     Choose the amount of points to wager for your 1v1 duel. Higher bets offer bigger rewards but also carry greater
     risk, adding a strategic element to the game. Make your choice wisely, then get ready to test your knowledge and

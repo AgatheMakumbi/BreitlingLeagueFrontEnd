@@ -1,6 +1,6 @@
 <template lang="">
    <!-- Composante button primary -->
-      <div class="w-64 h-14 relative mt-6 ">
+      <div class="w-64 h-14 relative mt-6 mb-20">
         <div
           class="w-64 h-14 p-2.5 left-0 top-0 absolute bg-yellow-500 inline-flex flex-col justify-center items-center gap-2.5 buttonAnimation"
         >

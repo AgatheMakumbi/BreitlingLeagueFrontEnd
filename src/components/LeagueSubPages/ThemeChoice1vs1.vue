@@ -18,7 +18,7 @@
       >
         
         <div class="flex flex-row justify-between w-full">
-          <div class="text-sm font-medium">
+          <div class="text-sm font-medium lg:text-lg">
              {{ theme.name }}
           </div>
           

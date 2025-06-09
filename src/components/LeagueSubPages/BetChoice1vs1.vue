@@ -24,38 +24,31 @@
       </div>
     </div>
     <div class="w-52 h-12 relative">
-      <input v-model="selectedAmount" type="number"
+      <input v-model="modelValue" type="number" min="1000"
+      max="10000"
         class="w-52 h-12 left-0 top-0 absolute bg-white border border-black px-2" />
     </div>
     <div
       class="w-20 h-8 text-center justify-center text-black text-lg font-medium font-['Italian_Plate_No2'] leading-relaxed">
-      {{ selectedAmount }} points
+      {{ modelValue }} points
     </div>
-    <TheButtonPrimary
-      label-name="START"
-
-    />
+    
   </div>
   
 </template>
 <script setup>
-import { ref, watch } from 'vue';
-import { selectedAmount } from '../../stores/globals'
-import TheButtonPrimary from '../TheButtonPrimary.vue';
+import { ref, defineModel } from 'vue'
 
-const emit = defineEmits(['update:isValid'])
-const betAmounts = [1000, 3000, 10000]
 
-const isValidAmount = (amount) => {
-  return amount >= 1000 && amount <= 10000;
-}
-// Watch for changes in selectedAmount and emit validation state
-watch(() => selectedAmount.value, (newAmount) => {
-  emit('update:isValid', isValidAmount(newAmount))
+const modelValue = defineModel('isBetSelected', {
+  // validator to ensure bet amount is valid
+  validator: (value) => value === null || (value >= 1000 && value <= 10000)
 })
 
+const betAmounts = [1000, 3000, 10000]
+
 const setBetAmount = (amount) => {
-  selectedAmount.value = amount
+  modelValue.value = amount
 }
 </script>
 <style></style>

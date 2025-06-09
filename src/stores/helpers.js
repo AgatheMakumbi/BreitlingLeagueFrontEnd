@@ -18,3 +18,12 @@ export const verifySelection = (valueToverify, emit,message) => {
     return false;
   }
 };
+
+export function pickRandom(itemList) {
+  
+  if (itemList.length > 0) {
+    const randomIndex = Math.floor(Math.random() * itemList.length);
+    return itemList[randomIndex];
+  }
+
+}

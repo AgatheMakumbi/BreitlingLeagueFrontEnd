@@ -23,7 +23,7 @@
       
       <div class="w-80 h-20 p-5 bg-white inline-flex justify-start items-center hover:bg-yellow-500 "   v-for="choice in question.choices" :key="choice.code_id">
         <div class="justify-start text-black text-lg font-medium font-['Italian_Plate_No2'] leading-relaxed" @click="selectAnswer(choice)">
-          {{ choice.code_id }} 
+          {{ choice.label}} 
         </div>
       </div>
     </div>

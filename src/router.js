@@ -19,6 +19,7 @@ import MiniGameMemory from './components/LeagueSubPages/MiniGameMemory.vue';
 import MiniGameFeedback from './components/LeagueSubPages/MiniGameFeedback.vue';
 import Quiz from './components/LeagueSubPages/Quiz.vue';
 import QuizzManager from './components/QuizzManager.vue';
+import Recap1vs1 from './components/LeagueSubPages/Recap1vs1.vue';
 
 const routes = [
 
@@ -65,6 +66,9 @@ const routes = [
     },
     {
         path: '/league/newQuizz', name: 'newQuizz', component: QuizzManager
+    },
+    {
+        path: '/league/recap', name: 'recap', component: Recap1vs1
     }
 ];
 

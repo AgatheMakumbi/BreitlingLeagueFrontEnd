@@ -17,7 +17,7 @@
           <div class="absolute inset-0 bg-yellow-500 h-10 top-[25%] w-full"></div>
           <div class="oponentWrapper relative flex flex-row justify-between items-center w-[80vw] overflow-hidden overflow-x-auto">
             
-            <div v-for="player in rankingData" class="flex flex-col justify-center items-center min-w-fit  ">
+            <div v-for="player in rankingData" class="flex flex-col justify-center items-center min-w-fit" @click="showDetails(player)">
               
               <img
                   :src="player.avatar"
@@ -33,7 +33,9 @@
 <script setup>
 import { ref } from 'vue';
 import { ArrowRight } from "lucide-vue-next";
+import { useRouter } from 'vue-router';
 
+const router = useRouter();
 const props = defineProps({
   listName: {
     type: String,
@@ -155,5 +157,14 @@ const rankingData = [
     score: 42398,
   },
 ];
+// Handle the click event to show player details
+function showDetails(player) {
+  // route to show detailed information
+  const myData = {
+    opponent: player,
+    opponent: props.listName
+  };
+  router.push({ name: 'recap', state: { myData} });
 
+}
 </script>

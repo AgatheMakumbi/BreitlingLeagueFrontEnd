@@ -13,12 +13,19 @@
       leaderboard. By regularly participating in these quizzes, players can steadily build their expertise and increase
       their chances of qualifying for the final stages of the competition.
     </p>
-    <TheButtonPrimary label-name="New solo quiz" />
+    <TheButtonPrimary label-name="New solo quiz" @click="startQuizz"/>
 
 
   </div>
 </template>
 <script setup>
 import TheButtonPrimary from './TheButtonPrimary.vue';
+import { useRouter } from 'vue-router';
+const router = useRouter();
+
+const startQuizz = () => {
+ // navigation to the game page
+      router.push({ name: 'quiz'}) 
+};
 </script>
 <style></style>

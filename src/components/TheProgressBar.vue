@@ -14,7 +14,7 @@ onMounted(() => {
   const percent = document.querySelector(".percent");
 
   const initialValue = ref(0); // Initial value for the progress
-  const currentValue = ref(70);
+  const currentValue = ref(100);
   const speed = 10; // Adjust the speed of the progress
 
   //increase the value each 10ms then update the progress and text content

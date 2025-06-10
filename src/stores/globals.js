@@ -1,5 +1,15 @@
 
-import { ref } from 'vue'
+
+import axios from 'axios';
+import { ref } from 'vue';
+import { getApiUsers } from './helpers.js';
+
+
+export const apiUrl = 'http://195.15.212.178/api';
+
+
+
+
 export const gameModeState = ref('1vs1') // Add state to track current gamemode
 export const rankingModeState = ref('Quarter')
 export const selectedAmount = ref('')
@@ -7,6 +17,7 @@ export const selectedOpponent = ref(null)
 export const selectedTheme = ref(null)
 export const selectedBet = ref(null)    
 export const step = ref(1) // état courant
+export const users = ref([]) // tableau des utilisateurs
 
 export const rankingData = [
   {

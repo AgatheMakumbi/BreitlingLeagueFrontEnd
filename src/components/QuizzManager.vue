@@ -10,14 +10,17 @@
 <script setup>
 import axios from 'axios';
 import { ref } from 'vue';
+import { apiUrl } from '../stores/globals.js';
+import { getApiUsers } from '../stores/helpers.js';
 import Quiz from '@/components/LeagueSubPages/Quiz.vue'; 
 import router from '../Router';
+const quizzId = ref(null); 
 const quizzes = ref([]);
 const allQuestions = ref([]);
 const currentQuestionIndex = ref(0);
 
-//Logique pour savoir sur quel stage on est
 
+// This function processes the quizzes and extracts all questions into a flat list
 function stageProgress(quizzes) {
     const list = [];
   for (let i = 0; i < quizzes.value.stages.length; i++) {
@@ -55,13 +58,28 @@ function stageProgress(quizzes) {
     allQuestions.value = list;
   }
   
-
-
-
-
-async function fetchquizzes () {
+// Fetch the quiz ID from the API and then fetch the quizzes using that ID
+  async function fetchQuizzId () {
   try {
-    const response = await axios.get('http://195.15.212.178/api/quizzes/9207');
+    const users = await getApiUsers();
+    console.log("Fetching users:", users);
+    const response = await axios.get(`${apiUrl}/quizzes/start-quiz`, {
+      user_id: users[0].id 
+    });
+    console.log(response);
+    quizzId.value = response.data; 
+    console.log("quizzId fetched successfully:",  quizzId.value);
+    fetchquizzes(quizzId.value);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+
+// Fetch the quizzes using the quiz ID
+async function fetchquizzes (quizzId) {
+  try {
+    const response = await axios.get(`${apiUrl}/quizzes/${quizzId}`);
     console.log(response);
     quizzes.value = response.data; // Update the ref value
     console.log("quizzes fetched successfully:", quizzes.value);
@@ -70,10 +88,11 @@ async function fetchquizzes () {
     console.error(error);
   }
 }
+// Handle the answer submission
 async function handleAnswer(payload) {
     console.log("handleAnswer called with payload:", payload);
   try {
-    await axios.post(`http://195.15.212.178/api/quizzes/9207/questions/${payload.questionId}/answer`);
+    await axios.post(`${apiUrl}/quizzes/9207/questions/${payload.questionId}/answer`);
     /* {
       question_id: payload.questionId,
       answer_id: payload.answerId
@@ -91,7 +110,8 @@ async function handleAnswer(payload) {
     console.error('Erreur lors de l’envoi de la réponse', error);
   }
 }
-fetchquizzes();
+fetchQuizzId();
+//fetchquizzes();
 
 
 

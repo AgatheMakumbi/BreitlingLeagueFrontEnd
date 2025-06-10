@@ -1,4 +1,7 @@
 import { ref } from 'vue'
+import axios from 'axios';
+import { apiUrl } from '../stores/globals.js';
+
 
 export const verifySelection = (valueToverify, emit,message) => {
   if (valueToverify) {
@@ -26,4 +29,12 @@ export function pickRandom(itemList) {
     return itemList[randomIndex];
   }
 
+}
+
+export async function getApiUsers(){
+    const response = await axios.get(`${apiUrl}/users`);
+    //console.log(response);
+    const users = response.data; 
+    return users.data;   
+    
 }

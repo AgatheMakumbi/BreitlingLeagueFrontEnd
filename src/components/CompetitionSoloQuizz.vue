@@ -25,7 +25,7 @@ const router = useRouter();
 
 const startQuizz = () => {
  // navigation to the game page
-      router.push({ name: 'quiz'}) 
+      router.push({ name: 'newQuizz'}) 
 };
 </script>
 <style></style>

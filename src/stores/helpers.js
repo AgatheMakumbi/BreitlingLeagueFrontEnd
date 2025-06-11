@@ -1,6 +1,7 @@
-import { ref } from 'vue'
+
 import axios from 'axios';
 import { apiUrl } from '../stores/globals.js';
+
 
 
 export const verifySelection = (valueToverify, emit,message) => {
@@ -21,6 +22,7 @@ export const verifySelection = (valueToverify, emit,message) => {
     return false;
   }
 };
+
 
 export function pickRandom(itemList) {
   

@@ -16,22 +16,24 @@
             </tr>
           </thead>
           <tbody>
+            <!-- :key="player.rank + '-' + player.pseudo -->
             <tr
+             
               v-for="player in paginatedPlayers"
-              :key="player.rank + '-' + player.pseudo"
+              :key="player.id + '-' + player.nickname"
               class="border-b"
             >
-              <td class="p-2">{{ player.rank }}</td>
+              <td class="p-2">{{ player.id }}</td>
               <td class="p-2">
                 <img
-                  :src="player.avatar"
+                  :src="player.media"
                   alt="avatar"
                   class="w-5 h-5 rounded-full object-cover"
                 />
               </td>
-              <td class="p-2">{{ player.pseudo }}</td>
-              <td class="p-2">{{ player.country }}</td>
-              <td class="p-2" >{{ player.score.toLocaleString() }}</td>
+              <td class="p-2">{{ player.nickname }}</td>
+              <!-- <td class="p-2">{{ player.country }}</td>
+              <td class="p-2" >{{ player.score.toLocaleString() }}</td> -->
             </tr>
           </tbody>
         </table>
@@ -61,14 +63,18 @@
   
 </template>
 <script setup>
-import { ref, computed} from 'vue';
+import { ref, computed, onMounted} from 'vue';
 import { ArrowLeft } from 'lucide-vue-next';
 import { ArrowRight } from 'lucide-vue-next';
 import {rankingModeState} from '@/stores/globals';
+import { usersList, fetchUsers } from '@/stores/globals';
 
-/* const getImageUrl = (name) => {
-return new URL(`/assets/images/${name}.png`, import.meta.url).href;
-}; */
+
+
+ // Ensure data is loaded
+ onMounted(fetchUsers)
+
+console.log("Ranking :", usersList);
 
 // Ranking data
 const rankingData = [
@@ -276,13 +282,14 @@ const playersPerPage = 16
 const currentPage = ref(1)
 
  const totalPages = computed(() =>
-  Math.ceil(rankingData.length / playersPerPage)
+  //Math.ceil(rankingData.length / playersPerPage)
+  Math.ceil(usersList.value.length / playersPerPage)
 ) 
 
 const paginatedPlayers = computed(() => {
   const start = (currentPage.value - 1) * playersPerPage
   const end = start + playersPerPage
-  return rankingData.slice(start, end)
+  return usersList.value.slice(start, end)
 })
 
 function nextPage() {

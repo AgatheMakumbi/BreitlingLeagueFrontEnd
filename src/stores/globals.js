@@ -1,14 +1,12 @@
 
 
-import axios from 'axios';
 import { ref } from 'vue';
 import { getApiUsers } from './helpers.js';
 
+export const usersList = ref([]); // State to hold the list of users
+let isInitialized = false;
 
 export const apiUrl = 'http://195.15.212.178/api';
-
-
-
 
 export const gameModeState = ref('1vs1') // Add state to track current gamemode
 export const rankingModeState = ref('Quarter')
@@ -250,3 +248,27 @@ export const themes = [
   }
 
 ]
+
+
+export async function fetchUsers() {
+    // Only fetch if we haven't already
+    if (!isInitialized) {
+        try {
+            const response = await getApiUsers();
+            usersList.value = response;
+            isInitialized = true;
+            console.log(usersList.value);
+            return usersList.value;
+            
+        } catch (error) {
+            console.error("Error fetching users:", error);
+            return [];
+        }
+    }
+    console.log(usersList.value);
+    return usersList.value; // Return cached data if already fetched
+    
+}
+
+// Initialize the store
+//fetchUsers();

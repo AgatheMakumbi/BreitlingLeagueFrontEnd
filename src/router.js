@@ -68,7 +68,10 @@ const routes = [
         path: '/league/newQuizz', name: 'newQuizz', component: QuizzManager
     },
     {
-        path: '/league/recap', name: 'recap', component: Recap1vs1
+        path: '/league/recap',
+        name: 'recap',
+        component: Recap1vs1,
+        props: true,
     }
 ];
 

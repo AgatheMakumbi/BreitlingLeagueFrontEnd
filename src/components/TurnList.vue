@@ -1,6 +1,7 @@
 <template >
     <div class="turnWrapper">
         <!--Label top-->
+        
         <div class="w-[80vw] p-2.5 inline-flex flex flex-row">
           <div
             class="justify-self-center items-self-center flex flex-col w-full"
@@ -45,7 +46,7 @@ const props = defineProps({
 // Ranking data
 const rankingData = [
   {
-    rank: 1,
+    rank: 0,
     avatar: "/assets/images/avatar/1avatar.png",
     pseudo: "BouattitNi",
     country: "Suisse",
@@ -162,9 +163,14 @@ function showDetails(player) {
   // route to show detailed information
   const myData = {
     opponent: player,
-    opponent: props.listName
+    turnStatus: props.listName
   };
-  router.push({ name: 'recap', state: { myData} });
+  console.log("data:", myData);
+  router.push({ 
+    name: 'recap', 
+    query: { data: encodeURIComponent(JSON.stringify(myData))},
+
+});
 
 }
 </script>

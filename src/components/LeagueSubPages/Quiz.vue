@@ -22,13 +22,14 @@
       <!--Boucle for pour afficher les choix-->
 
       <div
-        class="w-[80vw] min-h-[5vh] p-5 bg-white inline-flex justify-start items-center hover:bg-yellow-500"
+        class="w-[80vw] min-h-[5vh] p-5 bg-white inline-flex justify-start items-center hover:bg-yellow-500 cursor-pointer"
         v-for="choice in question.choices"
         :key="choice.code_id"
+        @click="selectAnswer(choice)"
+        :class="getChoiceClass(choice)"
       >
         <div
           class="justify-start text-black text-lg font-medium font-['Italian_Plate_No2'] leading-relaxed"
-          @click="selectAnswer(choice)"
         >
           {{ choice.label }}
         </div>
@@ -47,7 +48,9 @@
 </template>
 <script setup>
 import TheBackButton from "@/components/TheBackButton.vue";
-import { defineProps, defineEmits, ref, computed, watchEffect } from "vue";
+import { defineProps, defineEmits, ref, computed } from "vue";
+const selectedChoice = ref(null);
+const showCorrect = ref(false);
 
 const props = defineProps({
   question: {
@@ -64,15 +67,43 @@ const props = defineProps({
   },
 });
 
-
 const emit = defineEmits(["answer"]);
 
 function selectAnswer(choice) {
-  emit("answer", {
+    selectedChoice.value = choice;
+    showCorrect.value = true;
+
+   //attendre 2 secondes avant de valider la réponse afin de laisser le temps à l’utilisateur de voir la réponse
+  setTimeout(() => {
+    selectedChoice.value = null;
+    showCorrect.value = false;
+    emit("answer", { 
     questionId: props.question.id,
     answerId: choice.code_id,
   });
+  }, 3000); 
+ 
+  
+  
 }
+
+function getChoiceClass(choice) {
+  if (!showCorrect.value) return "";
+
+  if (choice.code_id === selectedChoice.value?.code_id) {
+    return choice.is_correct
+      ? "border-4 border-green-500"
+      : "border-4 border-red-500";
+  }
+
+  // Révéler le bon choix même s’il n’a pas été cliqué
+  if (choice.is_correct) {
+    return "border-4 border-green-500";
+  }
+
+  return "opacity-60"; // griser les mauvais non sélectionnés
+}
+
 const formattedTime = computed(() => {
   const minutes = Math.floor(props.timeLeft / 60);
   const seconds = props.timeLeft % 60;
@@ -85,10 +116,6 @@ const formattedTime = computed(() => {
 const progressPercentage = computed(() => {
   if (!props.question || !props.total) return 0;
   return Math.round((props.question.number / props.total) * 100);
-});
-
-watchEffect(() => {
-  console.log('Progress:', progressPercentage.value);
 });
 </script>
 <style></style>

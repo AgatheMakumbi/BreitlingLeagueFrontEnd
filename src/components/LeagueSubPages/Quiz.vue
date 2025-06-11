@@ -5,7 +5,7 @@
       {{ question.number }} <span>/ {{ total }} </span>
     </h1>
     <!--Timer-->
-    <h2 class="pageTitle2 mt-7 mb-3 force-white-text">03:20</h2>
+    <h2 class="pageTitle2 mt-7 mb-3 force-white-text">{{ formattedTime }}</h2>
     <p class="pageDescriptionHero">{{ question.label }} ?</p>
     <p v-if="question.feedback" class="pageDescriptionHeroY">
       The correct answer is the Premier collection. This collection takes its
@@ -20,24 +20,34 @@
     </p>
     <div class="flex flex-col gap-4">
       <!--Boucle for pour afficher les choix-->
-      
-      <div class="w-80 h-20 p-5 bg-white inline-flex justify-start items-center hover:bg-yellow-500 "   v-for="choice in question.choices" :key="choice.code_id">
-        <div class="justify-start text-black text-lg font-medium font-['Italian_Plate_No2'] leading-relaxed" @click="selectAnswer(choice)">
-          {{ choice.label}} 
+
+      <div
+        class="w-[80vw] min-h-[5vh] p-5 bg-white inline-flex justify-start items-center hover:bg-yellow-500"
+        v-for="choice in question.choices"
+        :key="choice.code_id"
+      >
+        <div
+          class="justify-start text-black text-lg font-medium font-['Italian_Plate_No2'] leading-relaxed"
+          @click="selectAnswer(choice)"
+        >
+          {{ choice.label }}
         </div>
       </div>
     </div>
     <div>
       <!-- Progress bar create component-->
-      <p class="pageDescription force-white-text">progress bar</p>
+      <div class="w-[80vw] bg-white rounded-full h-[1.5vh]">
+        <div
+          class="bg-yellow-500 h-[1.5vh] rounded-full transition-all duration-300"
+          :style="{ width: `${progressPercentage}%` }"
+        ></div>
+      </div>
     </div>
-    
   </div>
 </template>
 <script setup>
-import TheButtonPrimary from "@/components/TheButtonPrimary.vue";
 import TheBackButton from "@/components/TheBackButton.vue";
-import { defineProps, defineEmits } from "vue";
+import { defineProps, defineEmits, ref, computed, watchEffect } from "vue";
 
 const props = defineProps({
   question: {
@@ -48,7 +58,12 @@ const props = defineProps({
     type: Number,
     required: true,
   },
+  timeLeft: {
+    type: Number,
+    default: 0,
+  },
 });
+
 
 const emit = defineEmits(["answer"]);
 
@@ -58,5 +73,22 @@ function selectAnswer(choice) {
     answerId: choice.code_id,
   });
 }
+const formattedTime = computed(() => {
+  const minutes = Math.floor(props.timeLeft / 60);
+  const seconds = props.timeLeft % 60;
+  return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(
+    2,
+    "0"
+  )}`;
+});
+
+const progressPercentage = computed(() => {
+  if (!props.question || !props.total) return 0;
+  return Math.round((props.question.number / props.total) * 100);
+});
+
+watchEffect(() => {
+  console.log('Progress:', progressPercentage.value);
+});
 </script>
 <style></style>

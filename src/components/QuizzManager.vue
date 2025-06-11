@@ -3,6 +3,7 @@
     <Quiz
       :question="allQuestions[currentQuestionIndex]"
       :total="allQuestions.length"
+      :timeLeft="timeLeft"
       @answer="handleAnswer"
     />
   </div>
@@ -20,6 +21,30 @@ const quizzAttemptId = ref(null);
 const quizzes = ref([]);
 const allQuestions = ref([]);
 const currentQuestionIndex = ref(0);
+// Timer variables
+const timeLeft = ref(0); // en secondes
+let timerInterval = null;
+const quizFinished = ref(false); // état global
+
+
+function startTimer() {
+  timeLeft.value = allQuestions.value.length * 30; // 30 secondes par question
+  timerInterval = setInterval(() => {
+    timeLeft.value--;
+    if (timeLeft.value <= 0) {
+      clearInterval(timerInterval);
+      quizFinished.value = true;
+      // Tu peux aussi router vers la page de fin
+      router.push({ name: 'finishedquiz' });
+    }
+  }, 1000);
+}
+
+function stopTimer() {
+  if (timerInterval) {
+    clearInterval(timerInterval);
+  }
+}
 
 // This function processes the quizzes and extracts all questions into a flat list
 function stageProgress(quizzes) {
@@ -50,6 +75,7 @@ function stageProgress(quizzes) {
     }
   }
   allQuestions.value = list;
+  startTimer();
 }
 
 // Fetch the quiz ID from the API and then fetch the quizzes using that ID
@@ -108,7 +134,8 @@ async function handleAnswer(payload) {
       currentQuestionIndex.value++;
     } else {
       // Fin du quiz
-      router.push({ name: "finishedquiz", query: { score: 100 } }); // Rediriger vers la page de fin du quiz
+      stopTimer(); 
+      router.push({ name: "finishedquiz", query: { score: 100 } }); // Rediriger vers la page de fin du quiz avec le score et le timeleft
     }
   } catch (error) {
     console.error("Erreur lors de l’envoi de la réponse", error);

@@ -13,11 +13,17 @@
         <div class="force-white-text">
             <CompetitionUserScore /> <!--Modifier les scores pour dynamiques -->
         </div>
-        <TheButtonPrimary label-name="End the quiz"/>
+        <TheButtonPrimary label-name="End the quiz" @click="endQuizz"/>
     </div>
 </template>
 <script setup>
 import CompetitionUserScore from "@/components/CompetitionUserScore.vue";
 import TheButtonPrimary from "@/components/TheButtonPrimary.vue"
+
+import { useRouter } from "vue-router";
+const router = useRouter();
+const endQuizz = () => {
+    // navigation to the game page
+    router.push({ name: "league" });
+};
 </script>
-<style setup></style>

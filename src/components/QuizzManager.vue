@@ -14,7 +14,7 @@ import { ref } from "vue";
 import { apiUrl } from "@/stores/globals.js";
 import { getApiUsers } from "@/stores/helpers.js";
 import Quiz from "@/components/LeagueSubPages/Quiz.vue";
-import router from "@/Router";
+import router from "@/router.js";
 
 const quizId = ref(null);
 const quizzAttemptId = ref(null); 

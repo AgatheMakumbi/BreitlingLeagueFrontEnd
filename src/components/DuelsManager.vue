@@ -6,8 +6,8 @@ import { useRoute, useRouter } from "vue-router";
 import axios from "axios";
 import Quiz from "@/components/LeagueSubPages/Quiz.vue";
 import { apiUrl } from "../stores/globals.js";
-import { pickRandom } from "../stores/helpers.js";
-import { usersList, fetchUsers } from "../stores/globals.js";
+import { pickRandom } from "@/stores/helpers.js";
+import { usersList, fetchUsers } from "@/stores/globals.js";
 
 const router = useRouter();
 const route = useRoute();

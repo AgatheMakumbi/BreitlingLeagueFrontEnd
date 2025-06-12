@@ -18,7 +18,7 @@
 </template>
 <script setup>
 import { ref} from 'vue';
-import { gameModeState, rankingModeState } from '../stores/globals';
+import { gameModeState, rankingModeState } from '@/stores/globals';
 
 const toggleContainer = ref(null);
 

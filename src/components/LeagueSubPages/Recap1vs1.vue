@@ -28,9 +28,9 @@
 <script setup>
 import { computed}   from "vue";
 import TheButtonPrimary from '@/components/TheButtonPrimary.vue';
-import TheBackButton from "../TheBackButton.vue";
-import OpponnentPresentation from "../OpponentPresentation.vue";
-import { rankingData } from "../../stores/globals";
+import TheBackButton from "@/components/TheBackButton.vue";
+import OpponnentPresentation from "@/components/OpponentPresentation.vue";
+import { rankingData } from "@/stores/globals";
 import { useRouter } from 'vue-router';
 import { useRoute } from 'vue-router';
 const router = useRouter();

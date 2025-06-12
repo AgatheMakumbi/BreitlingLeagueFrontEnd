@@ -1,6 +1,6 @@
 
 import axios from 'axios';
-import { apiUrl } from '../stores/globals.js';
+import { apiUrl } from '@/stores/globals.js';
 
 
 

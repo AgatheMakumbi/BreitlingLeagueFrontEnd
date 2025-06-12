@@ -36,11 +36,11 @@ import { ref, onMounted, defineExpose,watch } from "vue";
 
 import TheButtonPrimary from '@/components/TheButtonPrimary.vue';
 import BetChoice1vs1 from "./BetChoice1vs1.vue";
-import OpponnentPresentation from "../OpponentPresentation.vue";
+import OpponnentPresentation from "@/components/OpponentPresentation.vue";
 import { rankingData } from '@/stores/globals.js';
-import TheBackButton from "../TheBackButton.vue";
+import TheBackButton from "@/components/TheBackButton.vue";
 import { useRouter } from "vue-router";
-import { usersList, fetchUsers } from "../../stores/globals";
+import { usersList, fetchUsers } from "@/stores/globals";
 
 
 onMounted(fetchUsers);

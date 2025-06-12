@@ -9,8 +9,8 @@
     </div>
 </template>
 <script setup>
-import { themes } from '../stores/globals';
-import { pickRandom } from '../stores/helpers';
+import { themes } from '@/stores/globals';
+import { pickRandom } from '@/stores/helpers';
 
 const theme = pickRandom(themes);
 </script>

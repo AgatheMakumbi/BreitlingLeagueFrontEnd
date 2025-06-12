@@ -11,10 +11,10 @@
 <script setup>
 import axios from "axios";
 import { ref } from "vue";
-import { apiUrl } from "../stores/globals.js";
-import { getApiUsers } from "../stores/helpers.js";
+import { apiUrl } from "@/stores/globals.js";
+import { getApiUsers } from "@/stores/helpers.js";
 import Quiz from "@/components/LeagueSubPages/Quiz.vue";
-import router from "../Router";
+import router from "@/Router";
 
 const quizId = ref(null);
 const quizzAttemptId = ref(null); 

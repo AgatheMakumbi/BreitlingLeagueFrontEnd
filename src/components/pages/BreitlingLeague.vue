@@ -41,18 +41,11 @@
 
   </section>
 
-   <div>
-        <ul>
-        <li v-for="challenge in challenges" :key="challenge.id">
-            {{ challenge.titre }} - {{ challenge.contenu }}
-        </li>
-        </ul>
-    </div> 
+   
 </template>
 
 <script setup>
-import axios from 'axios';
-import { onMounted, ref } from "vue";
+
 import TheProgressBar from "@/components/TheProgressBar.vue";
 import CompetitionUserScore from "@/components/CompetitionUserScore.vue";
 import Competition1vs1 from "@/components/Competition1vs1.vue";
@@ -62,38 +55,6 @@ import { gameModeState } from '@/stores/globals';
 import TheToggleMode from '@/components/TheToggleMode.vue';
 
 
-
-const challenges = ref([]);
-
-
-
-//fetch http://195.15.212.178/api/challenges
-// to get the challenges and display them in the template
-// Fetch challenges and update the ref
-/* const fetchChallenges = async () => {
-  try {
-    const response = await fetch("http://195.15.212.178/api/challenges");
-    const data = await response.json();
-    challenges.value = data; // Update the ref value
-    console.log("Challenges fetched successfully:", challenges.value);
-  } catch (error) {
-    console.error("Error fetching challenges:", error);
-  }
-}; */
-
-// Use axios to fetch challenges from the API
-async function fetchChallenges () {
-  try {
-    const response = await axios.get('http://195.15.212.178/api/challenges');
-    console.log(response);
-    challenges.value = response.data; // Update the ref value
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-// Call the fetch function
-//fetchChallenges();
 </script>
 
 <style></style>

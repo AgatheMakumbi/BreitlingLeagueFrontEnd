@@ -54,21 +54,6 @@ const parsedData = computed(() => {
 
 console.log("Parsed Data:", parsedData.value);
 
-/* function startTimer() {
-  timeLeft.value = stageQuestions.value.length * 30;
-  timerInterval = setInterval(() => {
-    timeLeft.value--;
-    if (timeLeft.value <= 0) {
-      clearInterval(timerInterval);
-      // Peut gérer comme une défaite
-      router.push({ name: "recap", query: { timeout: true } });
-    }
-  }, 1000);
-}
-
-function stopTimer() {
-  clearInterval(timerInterval);
-} */
 
 // Initialise le match (POST /start-match)
 async function startMatch() {
@@ -140,13 +125,13 @@ async function handleAnswer({ payload }) {
 
   try {
     await axios.post(url, data);
-    console.log("Réponse envoyée pour duel 1vs1");
+    console.log("Réponse envoyée pour duel 1vs1", data);
 
-    // → Aller à la prochaine question si disponible
+    // Aller à la prochaine question si disponible
     if (currentQuestionIndex.value < allQuestions.value.length - 1) {
       currentQuestionIndex.value++;
     } else {
-      // ➡️ Fin des questions : rediriger vers la page Recap avec status "waiting"
+      //  Fin des questions : rediriger vers la page Recap avec status "waiting"
       router.push({
         name: "recap1vs1",
         query: {
@@ -164,6 +149,8 @@ async function handleAnswer({ payload }) {
 
 onMounted(() => {
   fetchQuizzId();
+  startMatch();
+  fetchMatchDetails()
   fetchUsers();
 });
 </script>

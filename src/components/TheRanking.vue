@@ -1,3 +1,53 @@
+
+<script setup>
+import axios from 'axios';
+import { ref, computed, onMounted, defineProps} from 'vue';
+import { ArrowLeft } from 'lucide-vue-next';
+import { ArrowRight } from 'lucide-vue-next';
+import {rankingModeState} from '@/stores/globals';
+import { apiUrl } from '@/stores/globals';
+
+
+const players = ref([]);
+const currentUser = ref();
+async function fetchRanking(){
+  const response = await axios.get(`${apiUrl}/users/ranking`);
+     players.value  = response.data.data;
+     
+     // find the id of user with nickame "BreitlingSpecialistTest"
+     currentUser.value = players.value.find(player => player.user.nickname === "BreitlingSpecialistTest");
+    
+}
+
+
+
+ // Ensure data is loaded
+ onMounted(fetchRanking)
+
+
+
+const playersPerPage = 16
+const currentPage = ref(1)
+
+ const totalPages = computed(() =>
+  //Math.ceil(rankingData.length / playersPerPage)
+  Math.ceil(players.value.length / playersPerPage)
+) 
+
+const paginatedPlayers = computed(() => {
+  const start = (currentPage.value - 1) * playersPerPage
+  const end = start + playersPerPage
+  return players.value.slice(start, end)
+})
+
+function nextPage() {
+  if (currentPage.value < totalPages.value) currentPage.value++
+}
+
+function prevPage() {
+  if (currentPage.value > 1) currentPage.value--
+}
+</script>
 <template>
    <!-- Ranking-->
       <div>
@@ -16,24 +66,25 @@
             </tr>
           </thead>
           <tbody>
-            <!-- :key="player.rank + '-' + player.pseudo -->
+            
             <tr
              
               v-for="player in paginatedPlayers"
-              :key="player.id + '-' + player.nickname"
+              :key="player.user.id + '-' + player.user.nickname"
               class="border-b"
+              :class="{ 'bg-yellow-500': player.user.id  === currentUser.user.id }"
             >
-              <td class="p-2">{{ player.id }}</td>
+              <td class="p-2">{{ player.rank }} </td>
               <td class="p-2">
                 <img
-                  :src="player.media"
+                  :src="player.user.media"
                   alt="avatar"
                   class="w-5 h-5 rounded-full object-cover"
                 />
               </td>
-              <td class="p-2">{{ player.nickname }}</td>
-              <!-- <td class="p-2">{{ player.country }}</td>
-              <td class="p-2" >{{ player.score.toLocaleString() }}</td> -->
+              <td class="p-2">{{ player.user.nickname }}</td>
+               <td class="p-2">{{ player.user.country }}</td>
+              <td class="p-2" >{{ player.total_score.toLocaleString() }}</td> 
             </tr>
           </tbody>
         </table>
@@ -62,241 +113,3 @@
     
   
 </template>
-<script setup>
-import { ref, computed, onMounted} from 'vue';
-import { ArrowLeft } from 'lucide-vue-next';
-import { ArrowRight } from 'lucide-vue-next';
-import {rankingModeState} from '@/stores/globals';
-import { usersList, fetchUsers } from '@/stores/globals';
-
-
-
- // Ensure data is loaded
- onMounted(fetchUsers)
-
-console.log("Ranking :", usersList);
-
-// Ranking data
-const rankingData = [
-  {
-    rank: 1,
-    avatar: "/assets/images/avatar/1avatar.png",
-    pseudo: "BouattitNi",
-    country: "Suisse",
-    score: 42702,
-  },
-  {
-    rank: 1,
-    avatar: "/assets/images/avatar/2avatar.png",
-    pseudo: "mathancay",
-    country: "Suisse",
-    score: 42702,
-  },
-  {
-    rank: 3,
-    avatar: "/assets/images/avatar/3avatar.png",
-    pseudo: "CineCook",
-    country: "Switzerland",
-    score: 42701,
-  },
-  {
-    rank: 4,
-    avatar: "/assets/images/avatar/4avatar.png",
-    pseudo: "Stanzie",
-    country: "Switzerland",
-    score: 42641,
-  },
-  {
-    rank: 5,
-    avatar: "/assets/images/avatar/5avatar.png",
-    pseudo: "mam1lou",
-    country: "Suisse",
-    score: 42636,
-  },
-  {
-    rank: 6,
-    avatar: "/assets/images/avatar/6avatar.png",
-    pseudo: "Vicoco",
-    country: "Suisse",
-    score: 42633,
-  },
-  {
-    rank: 7,
-    avatar: "/assets/images/avatar/7avatar.png",
-    pseudo: "Maxouille",
-    country: "Suisse",
-    score: 42623,
-  },
-  {
-    rank: 8,
-    avatar: "/assets/images/avatar/8avatar.png",
-    pseudo: "Princess MOON",
-    country: "South Korea",
-    score: 42552,
-  },
-  {
-    rank: 9,
-    avatar: "/assets/images/avatar/9avatar.png",
-    pseudo: "Ki Tam",
-    country: "Macao",
-    score: 42518,
-  },
-  {
-    rank: 10,
-    avatar: "/assets/images/avatar/10avatar.png",
-    pseudo: "gg.mak",
-    country: "Suisse",
-    score: 42490,
-  },
-  {
-    rank: 11,
-    avatar: "/assets/images/avatar/11avatar.png",
-    pseudo: "HSM",
-    country: "South Korea",
-    score: 42475,
-  },
-  {
-    rank: 12,
-    avatar: "/assets/images/avatar/12avatar.png",
-    pseudo: "슈퍼오션",
-    country: "South Korea",
-    score: 42441,
-  },
-  {
-    rank: 13,
-    avatar: "/assets/images/avatar/13avatar.png",
-    pseudo: "lea2001",
-    country: "Suisse",
-    score: 42433,
-  },
-  {
-    rank: 14,
-    avatar: "/assets/images/avatar/14avatar.png",
-    pseudo: "GeorgeM",
-    country: "Romania",
-    score: 42414,
-  },
-  {
-    rank: 15,
-    avatar: "/assets/images/avatar/15avatar.png",
-    pseudo: "math.ildee",
-    country: "Suisse",
-    score: 42409,
-  },
-  {
-    rank: 16,
-    avatar: "/assets/images/avatar/16avatar.png",
-    pseudo: "Halldór",
-    country: "Iceland",
-    score: 42398,
-  },
-  {
-    rank: 17,
-    avatar: "/assets/images/avatar/17avatar.png",
-    pseudo: "Léa",
-    country: "Suisse",
-    score: 42390,
-  },
-  {
-    rank: 18,
-    avatar: "/assets/images/avatar/18avatar.png",
-    pseudo: "Toto",
-    country: "France",
-    score: 42380,
-  },
-  {
-    rank: 19,
-    avatar: "/assets/images/avatar/19avatar.png",
-    pseudo: "JohnDoe",
-    country: "USA",
-    score: 42370,
-  },
-  {
-    rank: 20,
-    avatar: "/assets/images/avatar/20avatar.png",
-    pseudo: "JaneSmith",
-    country: "Canada",
-    score: 42360,
-  },
-  {
-    rank: 21,
-    avatar: "/assets/images/avatar/21avatar.png",
-    pseudo: "PlayerOne",
-    country: "Germany",
-    score: 42350,
-  },
-  {
-    rank: 22,
-    avatar: "/assets/images/avatar/22avatar.png",
-    pseudo: "GamerGirl",
-    country: "UK",
-    score: 42340,
-  },
-  {
-    rank: 23,
-    avatar: "/assets/images/avatar/23avatar.png",
-    pseudo: "Speedster",
-    country: "Italy",
-    score: 42330,
-  },
-  {
-    rank: 24,
-    avatar: "/assets/images/avatar/24avatar.png",
-    pseudo: "Challenger",
-    country: "Spain",
-    score: 42320,
-  },
-    {
-        rank: 25,
-        avatar: "/assets/images/avatar/25avatar.png",
-        pseudo: "ElitePlayer",
-        country: "Portugal",
-        score: 42310,
-    },
-    {
-        rank: 26,
-        avatar: "/assets/images/avatar/26avatar.png",
-        pseudo: "ProGamer",
-        country: "Netherlands",
-        score: 42300,
-    },
-    {
-        rank: 27,
-        avatar: "/assets/images/avatar/27avatar.png",
-        pseudo: "MasterMind",
-        country: "Belgium",
-        score: 42290,
-    },
-    {
-        rank: 28,
-        avatar: "/assets/images/avatar/28avatar.png",
-        pseudo: "GameChanger",
-        country: "Austria",
-        score: 42280,
-    },
-
-
-
-];
-const playersPerPage = 16
-const currentPage = ref(1)
-
- const totalPages = computed(() =>
-  //Math.ceil(rankingData.length / playersPerPage)
-  Math.ceil(usersList.value.length / playersPerPage)
-) 
-
-const paginatedPlayers = computed(() => {
-  const start = (currentPage.value - 1) * playersPerPage
-  const end = start + playersPerPage
-  return usersList.value.slice(start, end)
-})
-
-function nextPage() {
-  if (currentPage.value < totalPages.value) currentPage.value++
-}
-
-function prevPage() {
-  if (currentPage.value > 1) currentPage.value--
-}
-</script>

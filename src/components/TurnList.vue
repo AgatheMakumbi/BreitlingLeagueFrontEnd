@@ -18,24 +18,30 @@
           <div class="absolute inset-0 bg-yellow-500 h-10 top-[25%] w-full"></div>
           <div class="oponentWrapper relative flex flex-row justify-between items-center w-[80vw] overflow-hidden overflow-x-auto">
             
-            <div v-for="player in rankingData" class="flex flex-col justify-center items-center min-w-fit" @click="showDetails(player)">
+            <div v-for="player in players" class="flex flex-col justify-center items-center min-w-fit" @click="showDetails(player)">
               
               <img
-                  :src="player.avatar"
+                  :src="player.media"
                   alt="avatar"
                   class="oponentAvatarWrapper"
                 />
-              <p class="oponentLabel whitespace-nowrap">{{player.pseudo}}</p>
+              <p class="oponentLabel whitespace-nowrap">{{player.nickname}}</p>
             </div>
           </div>
         </div>
       </div>
 </template>
 <script setup>
-import { ref } from 'vue';
+import { onMounted, computed} from 'vue';
 import { ArrowRight } from "lucide-vue-next";
 import { useRouter } from 'vue-router';
+import { usersList, fetchUsers } from '@/stores/globals';
 
+
+
+ // Ensure data is loaded
+ onMounted(fetchUsers)
+ const players = computed(() => usersList.value.slice(1));
 const router = useRouter();
 const props = defineProps({
   listName: {
@@ -43,121 +49,7 @@ const props = defineProps({
     required: true
   }
 })
-// Ranking data
-const rankingData = [
-  {
-    rank: 0,
-    avatar: "/assets/images/avatar/1avatar.webp",
-    pseudo: "BouattitNi",
-    country: "Suisse",
-    score: 42702,
-  },
-  {
-    rank: 1,
-    avatar: "/assets/images/avatar/2avatar.webp",
-    pseudo: "mathancay",
-    country: "Suisse",
-    score: 42702,
-  },
-  {
-    rank: 3,
-    avatar: "/assets/images/avatar/3avatar.webp",
-    pseudo: "CineCook",
-    country: "Switzerland",
-    score: 42701,
-  },
-  {
-    rank: 4,
-    avatar: "/assets/images/avatar/4avatar.webp",
-    pseudo: "Stanzie",
-    country: "Switzerland",
-    score: 42641,
-  },
-  {
-    rank: 5,
-    avatar: "/assets/images/avatar/5avatar.webp",
-    pseudo: "mam1lou",
-    country: "Suisse",
-    score: 42636,
-  },
-  {
-    rank: 6,
-    avatar: "/assets/images/avatar/6avatar.webp",
-    pseudo: "Vicoco",
-    country: "Suisse",
-    score: 42633,
-  },
-  {
-    rank: 7,
-    avatar: "/assets/images/avatar/7avatar.webp",
-    pseudo: "Maxouille",
-    country: "Suisse",
-    score: 42623,
-  },
-  {
-    rank: 8,
-    avatar: "/assets/images/avatar/8avatar.webp",
-    pseudo: "Princess MOON",
-    country: "South Korea",
-    score: 42552,
-  },
-  {
-    rank: 9,
-    avatar: "/assets/images/avatar/9avatar.webp",
-    pseudo: "Ki Tam",
-    country: "Macao",
-    score: 42518,
-  },
-  {
-    rank: 10,
-    avatar: "/assets/images/avatar/10avatar.webp",
-    pseudo: "gg.mak",
-    country: "Suisse",
-    score: 42490,
-  },
-  {
-    rank: 11,
-    avatar: "/assets/images/avatar/11avatar.webp",
-    pseudo: "HSM",
-    country: "South Korea",
-    score: 42475,
-  },
-  {
-    rank: 12,
-    avatar: "/assets/images/avatar/12avatar.webp",
-    pseudo: "슈퍼오션",
-    country: "South Korea",
-    score: 42441,
-  },
-  {
-    rank: 13,
-    avatar: "/assets/images/avatar/13avatar.webp",
-    pseudo: "lea2001",
-    country: "Suisse",
-    score: 42433,
-  },
-  {
-    rank: 14,
-    avatar: "/assets/images/avatar/14avatar.webp",
-    pseudo: "GeorgeM",
-    country: "Romania",
-    score: 42414,
-  },
-  {
-    rank: 15,
-    avatar: "/assets/images/avatar/15avatar.webp",
-    pseudo: "math.ildee",
-    country: "Suisse",
-    score: 42409,
-  },
-  {
-    rank: 16,
-    avatar: "/assets/images/avatar/16avatar.webp",
-    pseudo: "Halldór",
-    country: "Iceland",
-    score: 42398,
-  },
-];
+
 // Handle the click event to show player details
 function showDetails(player) {
   // route to show detailed information

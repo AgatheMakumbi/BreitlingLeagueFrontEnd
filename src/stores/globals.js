@@ -19,7 +19,7 @@ export const users = ref([]) // tableau des utilisateurs
 
 export const rankingData = [
   {
-    rank: 1,
+    rank: 0,
     avatar: "/assets/images/avatar/1avatar.png",
     pseudo: "BouattitNi",
     country: "Suisse",
@@ -257,7 +257,7 @@ export async function fetchUsers() {
             const response = await getApiUsers();
             usersList.value = response;
             isInitialized = true;
-            console.log(usersList.value);
+            
             return usersList.value;
             
         } catch (error) {
@@ -265,10 +265,7 @@ export async function fetchUsers() {
             return [];
         }
     }
-    console.log(usersList.value);
-    return usersList.value; // Return cached data if already fetched
+   
+    return usersList.value; 
     
 }
-
-// Initialize the store
-//fetchUsers();

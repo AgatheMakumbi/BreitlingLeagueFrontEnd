@@ -11,10 +11,10 @@
     <TheToggleMode option-one="Quarter" option-two="Qualification" class="mb-6" />
     <!-- Composante country filter -->
     <div class="w-full max-w-sm mx-auto">
-      <label class="block text-gray-500 mb-1 text-sm lg:text-lg">Select your country</label>
+      <label class="block text-gray-500 mb-1 text-xl lg:text-2xl">Select your country</label>
       <div class="relative">
         <select v-model="selectedCountry"
-          class="w-full appearance-none border border-gray-300 rounded-md px-4 py-2 pr-10 bg-white text-black text-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+          class="w-full appearance-none border border-gray-300 rounded-md px-4 py-2 pr-10 bg-white text-black text-lg focus:outline-none focus:ring-2 focus:ring-yellow-500">
           <option v-for="country in countries" :key="country" :value="country">
             {{ country }}
           </option>
@@ -30,7 +30,7 @@
     </div>
   </div>
   <!-- Composante ranking -->
-  <TheRanking />
+  <TheRanking  />
 </template>
 <script setup>
 import { ref } from 'vue';
@@ -39,34 +39,9 @@ import { rankingModeState } from '@/stores/globals';
 import TheRanking from './TheRanking.vue';
 // List of countries for the dropdown
 
-const selectedCountry = ref("Switzerland");
-const countries = [
-  "Switzerland",
-  "France",
-  "Germany",
-  "Italy",
-  "Spain",
-  "Portugal",
-  "United Kingdom",
-  "Ireland",
-  "Netherlands",
-  "Belgium",
-  "Austria",
-  "Norway",
-  "Sweden",
-  "Finland",
-  "Denmark",
-  "Poland",
-  "Czech Republic",
-  "Hungary",
-  "Greece",
-  "Turkey",
-  "Romania",
-  "South Korea",
-  "Japan",
-  "Canada",
-];
 
+const selectedCountry = ref('Switzerland');
+const countries = ['Switzerland', 'France', 'Germany', 'Spain', 'Italy']
 
 
 </script>

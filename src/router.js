@@ -20,6 +20,8 @@ import MiniGameFeedback from './components/LeagueSubPages/MiniGameFeedback.vue';
 import Quiz from './components/LeagueSubPages/Quiz.vue';
 import QuizzManager from './components/QuizzManager.vue';
 import Recap1vs1 from './components/LeagueSubPages/Recap1vs1.vue';
+import DuelsManager from './components/DuelsManager.vue';
+
 
 const routes = [
 
@@ -72,13 +74,19 @@ const routes = [
         name: 'recap',
         component: Recap1vs1,
         props: true,
+    },
+    {
+        path: '/league/duel',
+        name: 'duel',
+        component: DuelsManager,
+        props: true,
     }
 ];
+
 
 const router = createRouter({
     history: createWebHistory(),
     routes,
 }); 
-
 
 export default router

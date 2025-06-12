@@ -1,14 +1,22 @@
 <template>
   <div class="heroWrapper centered">
     <TheBackButton />
-    <h1 class="pageTitleHero">1vs1 with <span>{{isOpponentSelected ? `${isOpponentSelected.pseudo}` : 'a Friend'}}</span></h1>
+    <h1 class="pageTitleHero">
+      1vs1 with
+      <span>{{
+        isOpponentSelected ? `${isOpponentSelected.pseudo}` : "a Friend"
+      }}</span>
+    </h1>
 
     <p class="pageDescriptionHero">
-      The 1v1 with a Friend feature adds a fun and social dimension to the Breitling League. It allows players to
-      challenge colleagues from their own boutique directly, choosing specific topics for the duel to focus on areas
-      they want to improve. This personalized competition encourages teamwork and friendly rivalry, helping participants
-      motivate each other to learn more effectively. By competing with familiar faces, players can sharpen their
-      knowledge while earning valuable points toward their overall ranking.
+      The 1v1 with a Friend feature adds a fun and social dimension to the
+      Breitling League. It allows players to challenge colleagues from their own
+      boutique directly, choosing specific topics for the duel to focus on areas
+      they want to improve. This personalized competition encourages teamwork
+      and friendly rivalry, helping participants motivate each other to learn
+      more effectively. By competing with familiar faces, players can sharpen
+      their knowledge while earning valuable points toward their overall
+      ranking.
     </p>
   </div>
   <div class="mainWrapper centered">
@@ -31,21 +39,19 @@
         v-if="step > 1"
         @click="prevStep"
       ></TheButtonTertiary>
-      
+
       <TheButtonTertiary
-        v-if="step  >1"
+        v-if="step > 1"
         :label-name="buttonLabel"
         @click="nextStep"
       ></TheButtonTertiary>
 
       <!-- Show the primary button only on the first step -->
-       <TheButtonPrimary v-if="step <=1"
+      <TheButtonPrimary
+        v-if="step <= 1"
         :label-name="buttonLabel"
         @click="nextStep"
       ></TheButtonPrimary>
-      
-     
-     
     </div>
   </div>
 </template>
@@ -59,7 +65,6 @@ import TheButtonPrimary from "@/components/TheButtonPrimary.vue";
 import TheButtonTertiary from "../TheButtonTertiary.vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
-
 
 const step = ref(1); // current step
 const buttonLabel = step === 3 ? "Start" : "Next";
@@ -93,19 +98,31 @@ function nextStep() {
     return;
   }
 
-  if (step.value === 3){
-    if(!isBetSelected.value){
+  if (step.value === 3) {
+    if (!isBetSelected.value) {
       errorMessage.value = "Please select a valid bet amount (1000 to 10000).";
-    return;
-    }else{
+      return;
+    } else {
       // navigation to the game page
-      router.push({ name: 'quiz', query: { bet: isBetSelected.value } }) 
-
+      const myData = {
+        opponent: isOpponentSelected.value,
+        Theme: isThemeSelected.value,
+        Bet: isBetSelected.value,
+      };
+      console.log("data:", myData);
+      try {
+        router.push({
+          name: "duel",
+          query: { data: encodeURIComponent(JSON.stringify(myData)) },
+        });
+      } catch(err) {
+          console.error('erreur')
+      }
     }
-  }  
+  }
 
   errorMessage.value = "";
-  console.log(
+  /* console.log(
     "Step:",
     step.value,
     "Opponent:",
@@ -113,12 +130,10 @@ function nextStep() {
     "Theme:",
     isThemeSelected.value,
     "Bet:",
-   isBetSelected.value
-  );
+    isBetSelected.value
+  ); */
+
   step.value++;
-
-  
-
 }
 
 function prevStep() {
@@ -127,7 +142,5 @@ function prevStep() {
     errorMessage.value = "";
   }
 }
-
-
 </script>
 <style></style>

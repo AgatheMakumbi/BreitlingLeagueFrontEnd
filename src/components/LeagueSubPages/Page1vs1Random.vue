@@ -40,8 +40,10 @@ import OpponnentPresentation from "../OpponentPresentation.vue";
 import { rankingData } from '@/stores/globals.js';
 import TheBackButton from "../TheBackButton.vue";
 import { useRouter } from "vue-router";
+import { usersList, fetchUsers } from "../../stores/globals";
 
 
+onMounted(fetchUsers);
 const errorMessage = ref("");
 const router = useRouter();
 const isBetSelected = ref(null);
@@ -56,7 +58,7 @@ function updateErrorMessage() {
   }
 }
 function pickRandomPlayer() {
-  const players = rankingData;
+  const players = usersList.value;
   if (players.length > 0) {
     const randomIndex = Math.floor(Math.random() * players.length);
     randomPlayer.value = players[randomIndex];
@@ -69,8 +71,17 @@ if(!isBetSelected.value){
     return;
     }else{
       // navigation to the game page
-      router.push({ name: 'quiz', query: { bet: isBetSelected.value } }) 
-      console.log("Bet amount selected:", isBetSelected.value);
+      
+      const myData = {
+        opponent: randomPlayer.value,
+        /* Theme: isThemeSelected.value, */
+        Bet: isBetSelected.value
+      };
+      console.log("data:", myData);
+      router.push({
+        name: "duel",
+        query: { data: encodeURIComponent(JSON.stringify(myData)) },
+      });
     }
   }
 onMounted(() => {
